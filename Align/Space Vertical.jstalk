@@ -1,6 +1,6 @@
 // Distributes the selected elements vertically, with the same distante beetween them.
 
-var spacing = 10;
+var spacing = [[doc askForUserInput:"Spacing" initialValue:10] integerValue];
 
 function sort_by_position(a,b){
   return [[a frame] top] - [[b frame] top];
