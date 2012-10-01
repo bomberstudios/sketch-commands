@@ -1,0 +1,5 @@
+// Set opacity to 50% (ctrl 5)
+for (var i=0; i < [selection length]; i++){
+  var layer = selection[i];
+  [[[layer style] contextSettings] setOpacity:0.5];
+}
