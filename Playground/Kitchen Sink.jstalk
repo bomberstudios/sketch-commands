@@ -1,0 +1,119 @@
+// # Kitchen Sink
+
+// ## Syntax
+//
+// JSTalk allows you to use bracket notation for your code. I find it easier for exploring
+// objects, as it allows you to forget whether something is a method or an instance variable:
+
+var selection_length_with_bracket_notation = [selection length];
+// is equivalent to
+var selection_length_with_dot_notation = selection.length();
+
+
+// For debugging, you have access to the 'log' function, which traces its output to the
+// system log (you can view the output with 'tail -f /var/log/system.log' or use Console.app)
+
+log(selection_length_with_bracket_notation === selection_length_with_dot_notation); // true
+
+
+// ## Basic variables: doc & selection:
+
+// 'doc' is a default variable that points to the active document
+log(doc); // 01/10/12 18:11:59,656 Sketch[10375]: <MSDocument: 0x101552220>
+
+// Let's see what's there:
+
+// selectedLayers: Returns an NSArray containing all the layers that have been selected
+log([doc selectedLayers]); // 01/10/12 18:16:27,465 Sketch[10375]: ( "<MSShapeGroup: 0x1012570c0>" )
+
+// currentPage: Returns the current page, also an instance of MSLayerGroup.
+log([doc currentPage]); // 01/10/12 18:17:24,432 Sketch[10375]: <MSPage: 0x101554450>
+
+// currentView: Returns the view of the document; an instance of MSDrawView.
+log([doc currentView]); // 01/10/12 18:18:13,285 Sketch[10375]: <MSContentDrawView: 0x100684540>
+
+// addSliceAroundLayers
+// Creates a new slice around the selected layers.
+//
+// dataOfRect_format_(MSRect, format)
+//
+
+// selection is an array that contains the current selection:
+for(var i=0; i < [selection length]; i++) {
+  // do something with the selection
+}
+
+
+// ## Layers
+//
+// Layers are the building blocks in Sketch. Let's concentrate on just one layer first:
+var layer = selection[0];
+
+// You can access the following properties of a layer:
+
+// name: Returns an NSString of the layer's name
+log([layer name]);
+
+// A layer's name can be set dynamically:
+[layer setName:"This is a dynamic text"];
+
+// frame: Returns an instance of MSRect. Determines size and position on the canvas:
+log([layer frame]); // 01/10/12 18:26:06,747 Sketch[10375]: <MSRect: 0x101257c00>
+
+// style: Returns an instance of MSStyle. Determines all style-related attributes such as Borders, Fills, Shadows and more
+log([layer style]); // 01/10/12 18:24:28,200 Sketch[10375]: <MSStyle: 0x101262350>
+
+// ## MSStyle
+// 
+// MSStyle contains the borders, fills, shadows...
+
+// List the selection borders
+log([[layer style] borders]); // 01/10/12 18:31:44,709 Sketch[10375]: ( "<MSStyleBorder: 0x101255030>" )
+
+var how_many_borders = [[[layer style] borders] length];
+
+var first_border = [[layer style] borders][0];
+
+log(first_border); // 01/10/12 18:33:51,909 Sketch[10375]: <MSStyleBorder: 0x101255030>
+
+// position: Center (0), Inside (1) or Outside (2).
+log([first_border position]);
+[first_border setPosition:0];
+
+// thickness: border width as float (in pixels)
+[first_border setThickness:20];
+
+// fillType: A color fill (0) or a gradient (1)
+[first_border setFillType:1];
+
+// gradient: An MSGradient object that will only be used if the fillType is set to a gradient.
+if ([first_border fillType] == 1) {
+  log([first_border gradient]); // 01/10/12 18:40:33,464 Sketch[10375]: <MSGradient: 0x101253230>
+  var gradient = [first_border gradient];
+  // gradientType: Either Linear (0) or Radial (1).
+  log([gradient gradientType]); // 0
+
+  // from, to: Point are point structures in the coordinate system of the layer. For example: from (0,0) to (1,1) makes the gradient from top left to bottom right.
+  //log([gradient from]); // doesn't work
+  //log([gradient to]); // doesn't work
+
+  // stops: And array of MSGradientStop objects representing color and position (0..1) on the line between the from and to points
+  log([gradient stops]); // 01/10/12 18:43:28,979 Sketch[10375]: ( "<MSGradientStop: 0x10122ea80>", "<MSGradientStop: 0x10122e820>" )
+
+  var first_stop = [gradient stops][0];
+  var last_stop = [gradient stops][1];
+
+  // position: A float
+  log([first_stop position]); // 0, corresponds to the top
+  log([last_stop position]); // 1, corresponds to the bottom
+  // color: A standard color (NSColor) object
+  // NSDeviceRGBColorSpace 0.701961 0.909804 0.298039 1
+
+  log([first_stop color]); // 01/10/12 18:47:37,233 Sketch[10375]: NSCalibratedWhiteColorSpace 1 1
+  log([last_stop color]); // 01/10/12 18:47:37,233 Sketch[10375]: NSCalibratedWhiteColorSpace 0 1
+
+  // Set gradient color (needs redrawing afterwards)
+  [first_stop setColor:([NSColor redColor])];
+  [layer markLayerDirty];
+  
+}
