@@ -1,5 +1,10 @@
 // Custom Rotation
-var rotation = [[doc askForUserInput:"Rotation" initialValue:0] integerValue];
+var rotation = 0;
+if ([selection length] === 1) {
+  var layer = selection[0],
+      rotation = [layer rotation];
+}
+rotation = [[doc askForUserInput:"Rotation" initialValue:rotation] integerValue];
 
 for (var i=0; i < [selection length]; i++){
   var layer = selection[i];
