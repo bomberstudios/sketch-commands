@@ -6,8 +6,8 @@ var position = [doc askForUserInput:"Position (x,y pair)" initialValue:(x_pos + 
 
 for (var i=0; i<selection.length(); i++) {
   var layer = selection[i];
-  var x = position.split(",")[0];
-  var y = position.split(",")[1];
+  var x = eval(position.split(",")[0]);
+  var y = eval(position.split(",")[1]);
 
   [[layer frame] setX:x];
   [[layer frame] setY:y];
