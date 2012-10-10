@@ -1,0 +1,15 @@
+// Height (ctrl alt h)
+var height = 100;
+if ([selection length] === 1) {
+  var layer = selection[0],
+      frame = [layer frame],
+      height = [frame height];
+}
+height = [doc askForUserInput:"Height" initialValue:height];
+
+for (var i=0; i < [selection length]; i++){
+  var layer = selection[i],
+      frame = [layer frame];
+  [frame setHeight:Math.round(height)];
+}
+

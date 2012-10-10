@@ -1,0 +1,15 @@
+// Width (ctrl alt w)
+var width = 100;
+if ([selection length] === 1) {
+  var layer = selection[0],
+      frame = [layer frame],
+      width = [frame width];
+}
+width = [doc askForUserInput:"Width" initialValue:width];
+
+for (var i=0; i < [selection length]; i++){
+  var layer = selection[i],
+      frame = [layer frame];
+  [frame setWidth:Math.round(width)];
+}
+
