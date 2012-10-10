@@ -5,7 +5,7 @@ if ([selection length] === 1) {
       frame = [layer frame],
       height = [frame height];
 }
-height = eval([[doc askForUserInput:"Height" initialValue:""+height] toString]);
+height = eval([[doc askForUserInput:"Height" initialValue:height] toString]);
 
 for (var i=0; i < [selection length]; i++){
   var layer = selection[i],
