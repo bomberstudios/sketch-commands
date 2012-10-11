@@ -1,5 +1,5 @@
 // Set Radius (ctrl alt r)
-var value = 0;
+var value = 5;
 if ([selection length] === 1) {
   var layer = selection[0],
       value = [[[layer layers] firstObject] fixedRadius];
