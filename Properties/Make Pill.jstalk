@@ -3,8 +3,12 @@
 for (var i=0; i<selection.length(); i++) {
   var layer = selection[i],
       frame = [layer frame],
-      firstObject = [[layer layers] firstObject],
-      radius = [frame height] / 2;
+      firstObject = [[layer layers] firstObject];
+      if ([frame width] >= [frame height]) {
+        radius = [frame height] / 2;
+      } else {
+        radius = [frame width] / 2;
+      }
 
   [firstObject setFixedRadius:Math.round(radius)];
 }
