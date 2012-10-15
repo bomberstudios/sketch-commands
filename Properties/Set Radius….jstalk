@@ -3,6 +3,8 @@ var value = 5;
 if ([selection length] === 1) {
   var layer = selection[0],
       value = [[[layer layers] firstObject] fixedRadius];
+      // If radius is 0 you're probably running this command to set a positive corner radius...
+      if (value === 0) value = 5;
 }
 
 var radius = [[doc askForUserInput:"Radius" initialValue:value] integerValue];
