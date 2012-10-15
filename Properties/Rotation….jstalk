@@ -1,4 +1,4 @@
-// Custom Rotation
+// Custom Rotation (ctrl shift r)
 var rotation = 0;
 if ([selection length] === 1) {
   var layer = selection[0],
