@@ -1,0 +1,22 @@
+// Save document and export slices (ctrl shift s)
+
+[doc saveDocument:doc];
+
+var pages = [doc pages],
+    file_url = [doc fileURL],
+    file_path = [file_url path],
+    file_folder = file_path.split([doc displayName])[0],
+    export_folder = file_folder + "/" + ([doc displayName]).split('.sketch')[0] + "_export/";
+
+for(var p=0; p < pages.length(); p++) {
+  [doc setCurrentPage:pages[p]];
+
+  var layers = [[doc currentPage] allSlices];
+  if ([layers length] > 0) {
+    [[NSFileManager defaultManager] createDirectoryAtPath:export_folder withIntermediateDirectories:true attributes:nil error:nil];
+    for(var i=0; i < layers.length(); i++){
+      var slice = layers[i];
+      [doc saveArtboardOrSlice:slice toFile:export_folder + [slice name] + ".png"];
+    }
+  };
+}
