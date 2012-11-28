@@ -1,0 +1,4 @@
+// Export all slices as SVG
+#import 'library/common.js'
+
+com.bomberstudios.export_all_slices("svg");
