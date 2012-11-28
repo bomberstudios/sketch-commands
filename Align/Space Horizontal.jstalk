@@ -1,6 +1,7 @@
 // Distributes the selected elements horizontally, with the same distante beetween them.
+#import 'library/common.js'
 
-var spacing = [[doc askForUserInput:"Spacing" initialValue:10] integerValue];
+var spacing = [[doc askForUserInput:"Spacing" ofType:1 initialValue:10] integerValue];
 
 function sort_by_position(a,b){
   return [[a frame] left] - [[b frame] left];
@@ -10,8 +11,7 @@ var sorted_selection = selection.sort(sort_by_position));
 var first_element = sorted_selection[0];
 var left_position = [[first_element frame] left];
 
-for (var i=0; i<sorted_selection.length(); i++) {
-  var layer = sorted_selection[i];
+sorted_selection.each(function(layer){
   [[layer frame] setX:left_position];
   left_position = [[layer frame] left] + [[layer frame] width] + spacing;
-}
+});

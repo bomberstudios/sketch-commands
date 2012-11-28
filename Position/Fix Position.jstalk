@@ -1,9 +1,9 @@
 // Fix position (ctrl f)
+#import 'library/common.js'
 
-for (var i=0; i<selection.length(); i++) {
-  var layer = selection[i];
+selection.each(function(layer){
   [[layer frame] setWidth:Math.round([[layer frame] width])];
   [[layer frame] setHeight:Math.round([[layer frame] height])];
   [[layer frame] setX:Math.round([[layer frame] x])];
   [[layer frame] setY:Math.round([[layer frame] y])];
-}
+});

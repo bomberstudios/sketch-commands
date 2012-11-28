@@ -1,0 +1,4 @@
+// Export all artboards
+#import 'library/common.js'
+
+com.bomberstudios.export_all_artboards("pdf");

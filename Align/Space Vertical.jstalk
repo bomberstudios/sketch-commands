@@ -1,20 +1,17 @@
 // Distributes the selected elements vertically, with the same distante beetween them.
+#import 'library/common.js'
 
-var spacing = [[doc askForUserInput:"Spacing" initialValue:10] integerValue];
+var spacing = [[doc askForUserInput:"Spacing" ofType:1 initialValue:10] integerValue];
 
 function sort_by_position(a,b){
   return [[a frame] top] - [[b frame] top];
 }
 
-log(selection);
 var sorted_selection = selection.sort(sort_by_position));
-log(sorted_selection);
-
 var first_element = sorted_selection[0];
 var top_position = [[first_element frame] top];
 
-for (var i=0; i<sorted_selection.length(); i++) {
-  var layer = sorted_selection[i];
+sorted_selection.each(function(layer){
   [[layer frame] setY:top_position];
   top_position = [[layer frame] top] + [[layer frame] height] + spacing;
-}
+});
