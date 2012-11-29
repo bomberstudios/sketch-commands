@@ -1,8 +1,8 @@
 // Custom Opacity
+#import 'library/common.js'
+
 var alpha = [[doc askForUserInput:"Opacity percentage?" initialValue:100] integerValue];
 
-for (var i=0; i < [selection length]; i++){
-  var layer = selection[i];
-  [[[layer style] contextSettings] setOpacity:(alpha/100)];
-}
-
+selection.each(function(layer){
+  [[[layer style] contextSettings] setOpacity:alpha/100];
+});
