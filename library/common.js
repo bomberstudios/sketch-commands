@@ -70,3 +70,9 @@ Array.prototype.each = function(callback){
     count++;
   }
 }
+
+Number.prototype.times = function(callback){
+  for (var s = this - 1; s >= 0; s--){
+    callback.call(this,s);
+  };
+}

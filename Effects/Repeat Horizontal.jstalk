@@ -1,15 +1,15 @@
 // Repeat Horizontal
+#import 'library/common.js'
 
 var repeats = [[doc askForUserInput:"Repeats" initialValue:9] integerValue];
 
-for (var i=0; i < selection.length(); i++ ) {
-  var layer = selection[i],
-      frame = [layer frame];
-
-  for ( var r=0; r < repeats; r++) {
+selection.each(function(layer){
+  frame = [layer frame];
+  repeats.times(function(r){
     var copy = [layer duplicate],
         frame2 = [copy frame];
 
     [frame2 setX:[frame x] + ([frame width]+10)*r]
-  }
-}
+
+  });
+});
