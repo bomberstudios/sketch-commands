@@ -8,7 +8,7 @@ var task = [[NSTask alloc] init],
     file_basename = [doc displayName]).split('.sketch')[0],
     argsArray = [NSArray arrayWithObjects:"-r", com.bomberstudios.isodate() + "-" + file_basename + ".zip", file_basename + "_export", nil];
 
-[task setCurrentDirectoryPath:file_folder];
+[task setCurrentDirectoryPath:com.bomberstudios.getFileFolder()];
 [task setLaunchPath:"/usr/bin/zip"];
 [task setArguments:argsArray];
 [task launch];
@@ -17,7 +17,7 @@ var task = [[NSTask alloc] init],
 var open_finder = [[NSTask alloc] init],
     open_finder_args = [NSArray arrayWithObjects:".", nil];
 
-[open_finder setCurrentDirectoryPath:file_folder];
+[open_finder setCurrentDirectoryPath:com.bomberstudios.getFileFolder()];
 [open_finder setLaunchPath:"/usr/bin/open"];
 [open_finder setArguments:open_finder_args];
 [open_finder launch];

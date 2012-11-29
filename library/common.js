@@ -1,12 +1,5 @@
 // Common library of things
 
-// Variables for export scripts
-var pages = [doc pages],
-    file_url = [doc fileURL],
-    file_path = [file_url path],
-    file_folder = file_path.split([doc displayName])[0],
-    export_folder = file_folder + "/" + ([doc displayName]).split('.sketch')[0] + "_export/";
-
 var com = com || {};
 
 com.bomberstudios = {
@@ -18,9 +11,21 @@ com.bomberstudios = {
     var file_manager = [NSFileManager defaultManager];
     [file_manager createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil];
   },
+  getFileFolder: function(){
+    var pages = [doc pages],
+        file_url = [doc fileURL],
+        file_path = [file_url path],
+        file_folder = file_path.split([doc displayName])[0];
+    return file_folder;
+  },
+  getExportPath: function(){
+    var file_folder = com.bomberstudios.getFileFolder(),
+        export_folder = file_folder + "/" + ([doc displayName]).split('.sketch')[0] + "_export/";
+    return export_folder;
+  },
   export_all_slices: function(format,path){
     if (path == undefined) {
-      path = export_folder;
+      path = com.bomberstudios.getExportPath();
     }
     pages.each(function(page){
       [doc setCurrentPage:page];
@@ -33,7 +38,7 @@ com.bomberstudios = {
   },
   export_all_artboards: function(format,path){
     if (path == undefined) {
-      path = export_folder;
+      path = com.bomberstudios.getExportPath();
     }
     pages.each(function(page){
       [doc setCurrentPage:page];
