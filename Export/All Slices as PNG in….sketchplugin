@@ -1,7 +1,7 @@
 // Export all slices in…
 #import 'library/common.js'
 
-var file_path = [[doc fileURL]path].split([doc displayName])[0];
+var file_path = com.bomberstudios.getFileFolder();
 
 var export_to_path = [doc askForUserInput:"Export to…" ofType:2 initialValue:file_path];
 
