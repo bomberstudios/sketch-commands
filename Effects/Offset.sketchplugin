@@ -1,0 +1,27 @@
+// Create Offset
+
+#import 'library/common.js'
+
+var layer = selection[0];
+
+if (layer != null) {
+
+	var frame = [layer frame];
+
+	var offset = [[doc askForUserInput:"Offset?" initialValue:0] integerValue];
+
+	var copy = [layer duplicate];
+	var frame2 = [copy frame];
+
+	[frame2 setHeight:  [frame height] + offset];
+	[frame2 setWidth: [frame width] + offset];
+
+
+	[frame2 setX: [frame x] + [frame width]/2 - [frame2 width]/2];
+	[frame2 setY: [frame y] + [frame height]/2 - [frame2 height]/2];
+
+} else {
+	com.bomberstudios.alert("You need to select at least one layer.");
+}
+
+
