@@ -1,27 +1,22 @@
 // Create Offset
-
 #import 'library/common.js'
 
-var layer = selection[0];
+if (selection[0] != null) {
+  var offset = [[doc askForUserInput:"Offset distance (in pixels):" initialValue:0] integerValue];
+  selection.each(function(layer){
+    var frame = [layer frame];
 
-if (layer != null) {
+    var copy = [layer duplicate];
+    var frame2 = [copy frame];
 
-	var frame = [layer frame];
+    [frame2 setHeight:  [frame height] + (offset*2)];
+    [frame2 setWidth: [frame width] + (offset*2)];
 
-	var offset = [[doc askForUserInput:"Offset?" initialValue:0] integerValue];
-
-	var copy = [layer duplicate];
-	var frame2 = [copy frame];
-
-	[frame2 setHeight:  [frame height] + offset];
-	[frame2 setWidth: [frame width] + offset];
-
-
-	[frame2 setX: [frame x] + [frame width]/2 - [frame2 width]/2];
-	[frame2 setY: [frame y] + [frame height]/2 - [frame2 height]/2];
-
+    [frame2 setX: [frame x] + [frame width]/2 - [frame2 width]/2];
+    [frame2 setY: [frame y] + [frame height]/2 - [frame2 height]/2];
+  });
 } else {
-	com.bomberstudios.alert("You need to select at least one layer.");
+  com.bomberstudios.alert("You need to select at least one layer.");
 }
 
 
