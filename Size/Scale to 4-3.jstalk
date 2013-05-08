@@ -1,0 +1,12 @@
+// This command scales the selected object(s) so that they have a 16:9 aspect ratio.
+
+for (var i=0; i < [selection length]; i++){
+  var layer = selection[i],
+      frame = [layer frame],
+      width = [frame width],
+      height = [frame height];
+
+  [frame setWidth:width];
+  [frame setHeight:(width / (4/3))];
+
+}
