@@ -13,11 +13,4 @@ var task = [[NSTask alloc] init],
 [task setArguments:argsArray];
 [task launch];
 
-// Open Finder
-var open_finder = [[NSTask alloc] init],
-    open_finder_args = [NSArray arrayWithObjects:".", nil];
-
-[open_finder setCurrentDirectoryPath:com.bomberstudios.getFileFolder()];
-[open_finder setLaunchPath:"/usr/bin/open"];
-[open_finder setArguments:open_finder_args];
-[open_finder launch];
+com.bomberstudios.open_finder_in(com.bomberstudios.getFileFolder());

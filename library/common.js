@@ -94,6 +94,15 @@ com.bomberstudios = {
       default:
         return num;
     }
+  },
+  open_finder_in: function(path) {
+    var open_finder = [[NSTask alloc] init],
+        open_finder_args = [NSArray arrayWithObjects:".", nil];
+
+    [open_finder setCurrentDirectoryPath:path];
+    [open_finder setLaunchPath:"/usr/bin/open"];
+    [open_finder setArguments:open_finder_args];
+    [open_finder launch];
   }
 };
 
