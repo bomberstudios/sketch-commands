@@ -43,10 +43,11 @@ com.bomberstudios = {
     }
     [doc pages].each(function(page){
       [doc setCurrentPage:page];
+      var pagename = [[doc currentPage] name],
+          layers = [[doc currentPage] artboards];
 
-      var layers = [[doc currentPage] artboards];
       layers.each(function(artboard){
-        [doc saveArtboardOrSlice:artboard toFile:path + [artboard name] + "." + format];
+        [doc saveArtboardOrSlice:artboard toFile:path + "/" + pagename + "/" + [artboard name] + "." + format];
       });
     });
   },
