@@ -1,5 +1,10 @@
 // Create guides where user wants ;-)
-#import 'library/common.js'
+// #import 'library/common.js'
+function alert(msg,title){
+  if (title == undefined) { title = "Whoops" };
+  var app = [JSTalk application:"Sketch"];
+  [app displayDialog:msg withTitle:title];
+}
 
 var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage];
 
@@ -19,8 +24,8 @@ if (current_artboard != null) {
   } else if (pos_x == 0 && pos_y != 0) {
     [vertical_guides addGuideWithValue:pos_y];
   } else {
-    com.bomberstudios.alert("I won't add any guides.");
+    alert("I won't add any guides.");
   }
 } else {
-  com.bomberstudios.alert("You need to select at least one artboard.");
+  alert("You need to select at least one artboard.");
 }

@@ -1,5 +1,18 @@
 // Create Offset
-#import 'library/common.js'
+// #import 'library/common.js'
+Array.prototype.each = function(callback){
+  var count = 0;
+  for (var i = 0; i < this.length(); i++){
+    var el = this[i];
+    callback.call(this,el,count);
+    count++;
+  }
+}
+function alert(msg,title){
+  if (title == undefined) { title = "Whoops" };
+  var app = [JSTalk application:"Sketch"];
+  [app displayDialog:msg withTitle:title];
+}
 
 if (selection[0] != null) {
   var offset = [[doc askForUserInput:"Offset distance (in pixels):" initialValue:0] integerValue];
@@ -16,7 +29,5 @@ if (selection[0] != null) {
     [frame2 setY: [frame y] + [frame height]/2 - [frame2 height]/2];
   });
 } else {
-  com.bomberstudios.alert("You need to select at least one layer.");
+  alert("You need to select at least one layer.");
 }
-
-

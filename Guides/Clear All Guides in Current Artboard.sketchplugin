@@ -1,5 +1,15 @@
 // Clear All Guides in Current Artboard
-#import 'library/common.js'
+// #import 'library/common.js'
+Number.prototype.times = function(callback){
+  for (var s = this - 1; s >= 0; s--){
+    callback.call(this,s);
+  };
+}
+function alert(msg,title){
+  if (title == undefined) { title = "Whoops" };
+  var app = [JSTalk application:"Sketch"];
+  [app displayDialog:msg withTitle:title];
+}
 
 var current_artboard = [[doc currentPage] currentArtboard];
 
@@ -16,5 +26,5 @@ if (current_artboard != null) {
     [vertical_guides removeGuideAtIndex:0];
   })
 } else {
-  com.bomberstudios.alert("You need to select at least one layer from an artboard");
+  alert("You need to select at least one layer from an artboard");
 }

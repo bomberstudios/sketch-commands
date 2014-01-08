@@ -1,8 +1,16 @@
 // Make Pill
+// #import 'library/common.js'
+Array.prototype.each = function(callback){
+  var count = 0;
+  for (var i = 0; i < this.length(); i++){
+    var el = this[i];
+    callback.call(this,el,count);
+    count++;
+  }
+}
 
-for (var i=0; i<selection.length(); i++) {
-  var layer = selection[i],
-      frame = [layer frame],
+selection.each(function(layer){
+  var frame = [layer frame],
       firstObject = [[layer layers] firstObject];
       if ([frame width] >= [frame height]) {
         radius = [frame height] / 2;
@@ -11,4 +19,4 @@ for (var i=0; i<selection.length(); i++) {
       }
 
   [firstObject setFixedRadius:Math.round(radius)];
-}
+});

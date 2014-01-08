@@ -1,4 +1,4 @@
-// This command scales the selected object(s) so that they have a 16:9 aspect ratio.
+// This command scales the selected object(s) so that they have a 4:3 aspect ratio.
 
 for (var i=0; i < [selection length]; i++){
   var layer = selection[i],

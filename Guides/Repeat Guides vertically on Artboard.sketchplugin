@@ -1,22 +1,24 @@
 // Create repeating horizonatal guides
-#import 'library/common.js'
+// #import 'library/common.js'
+function alert(msg,title){
+  if (title == undefined) { title = "Whoops" };
+  var app = [JSTalk application:"Sketch"];
+  [app displayDialog:msg withTitle:title];
+}
 
 var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage];
 
 if (current_artboard != null) {
-	var vertical_guides = [current_artboard verticalRulerData],
-      	question = [doc askForUserInput:"Add (pos_y, distance, times)" initialValue:(0 + "," + 0 + "," + 0)];
+  var vertical_guides = [current_artboard verticalRulerData],
+      question = [doc askForUserInput:"Add (pos_y, distance, times)" initialValue:(0 + "," + 0 + "," + 0)],
+      pos_y = eval(question.split(",")[0]),
+      dis = eval(question.split(",")[1]),
+      times = eval(question.split(",")[2]);
 
-    var pos_y = eval(question.split(",")[0]),
-      	dis = eval(question.split(",")[1]),
-      	times = eval(question.split(",")[2]);
-
-  	for (var x=0; x<times; x++) {
-  		[vertical_guides addGuideWithValue:pos_y];
-  		pos_y = pos_y + dis;
-   } 
-
-
+  for (var x=0; x<times; x++) {
+    [vertical_guides addGuideWithValue:pos_y];
+    pos_y = pos_y + dis;
+  }
 } else {
-  com.bomberstudios.alert("You need to select at least one artboard.");
+  alert("You need to select at least one artboard.");
 }
