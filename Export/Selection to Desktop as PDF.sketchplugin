@@ -1,3 +1,4 @@
+// #import 'library/common.js'
 // Common library of things
 
 var com = com || {};
@@ -136,3 +137,12 @@ Number.prototype.times = function(callback){
 alert = com.bomberstudios.alert
 number_to_words = com.bomberstudios.number_to_words
 selection_count_is = com.bomberstudios.selection_count_is
+
+
+var sel = selection[0],
+    rect = [sel rectByAccountingForStyleSize:[[sel absoluteRect] rect]],
+    paths = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES),
+    desktop_path = [paths objectAtIndex:0];
+
+[doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:desktop_path + "/" + [sel name] + ".pdf"];
+com.bomberstudios.open_finder_in(desktop_path);

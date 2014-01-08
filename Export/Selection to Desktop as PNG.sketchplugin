@@ -1,3 +1,4 @@
+// #import 'library/common.js'
 // Common library of things
 
 var com = com || {};
@@ -136,3 +137,7 @@ Number.prototype.times = function(callback){
 alert = com.bomberstudios.alert
 number_to_words = com.bomberstudios.number_to_words
 selection_count_is = com.bomberstudios.selection_count_is
+
+
+com.bomberstudios.export_item_to_desktop(selection[0], "png");
+com.bomberstudios.open_finder_in(desktop_path);
