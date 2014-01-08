@@ -1,13 +1,6 @@
 // Fix position
-// #import 'library/common.js'
-Array.prototype.each = function(callback){
-  var count = 0;
-  for (var i = 0; i < this.length(); i++){
-    var el = this[i];
-    callback.call(this,el,count);
-    count++;
-  }
-}
+
+#import 'library/common.js'
 
 selection.each(function(layer){
   [[layer frame] setWidth:Math.round([[layer frame] width])];

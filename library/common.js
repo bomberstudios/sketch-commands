@@ -1,11 +1,9 @@
-// Common library of things
-
-var com = com || {};
+var com = {};
 
 com.bomberstudios = {
-  alert: function(msg,title){
+  alert: function (msg, title) {
     if (title == undefined) { title = "Whoops" };
-    var app = [JSTalk application:"Sketch"];
+    var app = [NSApplication sharedApplication];
     [app displayDialog:msg withTitle:title];
   },
   create_folder: function(path) {
@@ -52,13 +50,12 @@ com.bomberstudios = {
     });
   },
   export_item: function(item,format,path){
-    var sel = item,
-        rect = [sel rectByAccountingForStyleSize:[[sel absoluteRect] rect]],
+    var sel = item;
+    var rect = [sel rectByAccountingForStyleSize:[[sel absoluteRect] rect]];
     [doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:path + "/" + [sel name] + "." + format];
   },
   export_item_to_desktop: function(item,format){
     var desktop = [NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    log(desktop);
     com.bomberstudios.export_item(item,format,desktop);
   },
   padNumber: function(num){
@@ -131,6 +128,7 @@ Number.prototype.times = function(callback){
     callback.call(this,s);
   };
 }
+
 
 // Aliases
 alert = com.bomberstudios.alert

@@ -1,18 +1,6 @@
 // Create Guides Around Selection (ctrl shift w)
-// #import 'library/common.js'
-Array.prototype.each = function(callback){
-  var count = 0;
-  for (var i = 0; i < this.length(); i++){
-    var el = this[i];
-    callback.call(this,el,count);
-    count++;
-  }
-}
-function alert(msg,title){
-  if (title == undefined) { title = "Whoops" };
-  var app = [JSTalk application:"Sketch"];
-  [app displayDialog:msg withTitle:title];
-}
+
+#import 'library/common.js'
 
 var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage];
 

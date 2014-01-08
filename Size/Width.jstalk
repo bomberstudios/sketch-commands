@@ -1,11 +1,11 @@
-// Width (ctrl alt w)
+// Width (ctrl w)
 var width = 100;
 if ([selection length] === 1) {
   var layer = selection[0],
       frame = [layer frame],
       width = [frame width];
 }
-width = eval([[doc askForUserInput:"Width" initialValue:width] toString]);
+width = eval([[doc askForUserInput:"Width" ofType:1 initialValue:width] toString]);
 
 for (var i=0; i < [selection length]; i++){
   var layer = selection[i],

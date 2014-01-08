@@ -1,13 +1,6 @@
 // Set opacity to 20% (ctrl 2)
-// #import 'library/common.js'
-Array.prototype.each = function(callback){
-  var count = 0;
-  for (var i = 0; i < this.length(); i++){
-    var el = this[i];
-    callback.call(this,el,count);
-    count++;
-  }
-}
+
+#import 'library/common.js'
 
 selection.each(function(layer){
   [[[layer style] contextSettings] setOpacity:0.2];

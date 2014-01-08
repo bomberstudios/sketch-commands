@@ -1,10 +1,6 @@
 // Create repeating horizonatal guides
-// #import 'library/common.js'
-function alert(msg,title){
-  if (title == undefined) { title = "Whoops" };
-  var app = [JSTalk application:"Sketch"];
-  [app displayDialog:msg withTitle:title];
-}
+
+#import 'library/common.js'
 
 var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage];
 

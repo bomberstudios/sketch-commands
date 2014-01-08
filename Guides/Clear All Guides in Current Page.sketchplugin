@@ -1,10 +1,6 @@
 // Clear All Guides in Current Page
-// #import 'library/common.js'
-Number.prototype.times = function(callback){
-  for (var s = this - 1; s >= 0; s--){
-    callback.call(this,s);
-  };
-}
+
+#import 'library/common.js'
 
 var horizontal_guides = [[doc currentPage] horizontalRulerData],
     vertical_guides = [[doc currentPage] verticalRulerData];

@@ -1,18 +1,6 @@
 // Repeat Vertical
-// #import 'library/common.js'
-Array.prototype.each = function(callback){
-  var count = 0;
-  for (var i = 0; i < this.length(); i++){
-    var el = this[i];
-    callback.call(this,el,count);
-    count++;
-  }
-}
-Number.prototype.times = function(callback){
-  for (var s = this - 1; s >= 0; s--){
-    callback.call(this,s);
-  };
-}
+
+#import 'library/common.js'
 
 var repeats = [[doc askForUserInput:"Repeats" initialValue:9] integerValue];
 

@@ -1,4 +1,4 @@
-// Set Size (ctrl alt s)
+// Set Size (ctrl s)
 var height = 100,
     width = 100,
     size = "";
