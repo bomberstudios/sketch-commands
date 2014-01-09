@@ -11,8 +11,7 @@ com.bomberstudios = {
     [file_manager createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil];
   },
   getFileFolder: function(){
-    var pages = [doc pages],
-        file_url = [doc fileURL],
+    var file_url = [doc fileURL],
         file_path = [file_url path],
         file_folder = file_path.split([doc displayName])[0];
     return file_folder;
