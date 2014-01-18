@@ -1,7 +1,0 @@
-// Set opacity to 90% (ctrl 9)
-
-#import 'library/common.js'
-
-selection.each(function(layer){
-  [[[layer style] contextSettings] setOpacity:0.9];
-});
