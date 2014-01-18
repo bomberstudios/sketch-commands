@@ -3,8 +3,25 @@
 var sel = selection[0],
     rect = [sel rectByAccountingForStyleSize:[[sel absoluteRect] rect]],
     paths = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES),
-    desktop_path = [paths objectAtIndex:0];
+    desktop_path = [paths objectAtIndex:0],
+    export_filename,
+    modFlagOption = Math.pow(2,19),
+    modFlagCommand = Math.pow(2,20),
+    modFlags = [NSEvent modifierFlags],
+    overwrite;
 
-[doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:desktop_path + "/" + [sel name] + ".png"];
+if (modFlags & modFlagOption) {
+  overwrite = false
+} else {
+  overwrite = true
+}
 
-com.bomberstudios.open_finder_in(desktop_path);
+if(overwrite){
+  export_filename = desktop_path + "/" + [sel name] + ".png";
+} else {
+  export_filename = desktop_path + "/" + [sel name] + "-" + (new Date().getTime()) + ".png";
+}
+
+[doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:export_filename];
+
+com.bomberstudios.reveal_finder_in(export_filename);
