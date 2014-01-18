@@ -109,7 +109,17 @@ com.bomberstudios = {
     [open_finder setCurrentDirectoryPath:path];
     [open_finder setLaunchPath:"/usr/bin/open"];
     [open_finder setArguments:open_finder_args];
-    [open_finder launch];
+    [open_finder launch]
+    [open_finder release]
+  },
+  reveal_finder_in: function(path) {
+    var open_finder = [[NSTask alloc] init],
+        open_finder_args = [NSArray arrayWithObjects:"-R", path, nil];
+
+    [open_finder setLaunchPath:"/usr/bin/open"];
+    [open_finder setArguments:open_finder_args];
+    [open_finder launch]
+    [open_finder release]
   }
 };
 
@@ -128,6 +138,10 @@ Number.prototype.times = function(callback){
   };
 }
 
+Date.prototype.isoDate = function(){
+  var d = this;
+  return d.year();
+}
 
 // Aliases
 alert = com.bomberstudios.alert
