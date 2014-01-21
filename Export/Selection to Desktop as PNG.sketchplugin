@@ -5,12 +5,10 @@ var sel = selection[0],
     paths = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES),
     desktop_path = [paths objectAtIndex:0],
     export_filename,
-    modFlagOption = Math.pow(2,19),
-    modFlagCommand = Math.pow(2,20),
     modFlags = [NSEvent modifierFlags],
     overwrite;
 
-if (modFlags & modFlagOption) {
+if (modFlags & [NSAlternateKeyMask]) {
   overwrite = false
 } else {
   overwrite = true
