@@ -2,6 +2,8 @@
 
 Sketch Commands is a freestyle port of my [Orange Commands for Fireworks](http://orangecommands.com) for Bohemian Coding’s [Sketch.app](http://bohemiancoding.com/sketch/).
 
+It works both with the App Store and the non-sandboxed versions of Sketch (i.e: the beta).
+
 
 ## Installation
 
