@@ -1,3 +1,6 @@
+#import 'library/sandbox.js'
+#import 'library/sandbox-sketch-utils.js'
+
 var com = {};
 
 com.bomberstudios = {
@@ -8,7 +11,13 @@ com.bomberstudios = {
   },
   create_folder: function(path) {
     var file_manager = [NSFileManager defaultManager];
-    [file_manager createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil];
+    if (in_sandbox()) {
+      sandboxAccess.accessFilePath_withBlock_persistPermission(path, function(){
+        [file_manager createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil];
+      }, true)
+    } else {
+      [file_manager createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil];
+    }
   },
   getFileFolder: function(){
     var file_url = [doc fileURL],
@@ -18,23 +27,32 @@ com.bomberstudios = {
   },
   getExportPath: function(){
     var file_folder = com.bomberstudios.getFileFolder(),
-        export_folder = file_folder + "/" + ([doc displayName]).split('.sketch')[0] + "_export/";
+        export_folder = file_folder + ([doc displayName]).split('.sketch')[0] + "_export/";
     return export_folder;
   },
   export_all_slices: function(format,path){
+    log("com.bomberstudios.export_all_slices()")
     if (path == undefined) {
       path = com.bomberstudios.getExportPath();
     }
     [doc pages].each(function(page){
       [doc setCurrentPage:page];
+      var pagename = [[doc currentPage] name],
+          layers = [[doc currentPage] allSlices];
 
-      var layers = [[doc currentPage] allSlices];
       layers.each(function(slice){
-        [doc saveArtboardOrSlice:slice toFile:path + [slice name] + "." + format];
+        if (in_sandbox()) {
+          sandboxAccess.accessFilePath_withBlock_persistPermission(path, function(){
+            [doc saveArtboardOrSlice:slice toFile:path + "/" + pagename + "/" + [slice name] + "." + format];
+          }, true)
+        } else {
+          [doc saveArtboardOrSlice:slice toFile:path + "/" + pagename + "/" + [slice name] + "." + format];
+        }
       });
     });
   },
   export_all_artboards: function(format,path){
+    log("com.bomberstudios.export_all_artboards()")
     if (path == undefined) {
       path = com.bomberstudios.getExportPath();
     }
@@ -44,14 +62,27 @@ com.bomberstudios = {
           layers = [[doc currentPage] artboards];
 
       layers.each(function(artboard){
-        [doc saveArtboardOrSlice:artboard toFile:path + "/" + pagename + "/" + [artboard name] + "." + format];
+        if (in_sandbox()) {
+          sandboxAccess.accessFilePath_withBlock_persistPermission(path, function() {
+            [doc saveArtboardOrSlice:artboard toFile:path + "/" + pagename + "/" + [artboard name] + "." + format];
+          }, true)
+        } else {
+          log("We are NOT sandboxed")
+          [doc saveArtboardOrSlice:artboard toFile:path + "/" + pagename + "/" + [artboard name] + "." + format];
+        }
       });
     });
   },
   export_item: function(item,format,path){
     var sel = item;
     var rect = [sel rectByAccountingForStyleSize:[[sel absoluteRect] rect]];
-    [doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:path + "/" + [sel name] + "." + format];
+    if (in_sandbox()) {
+      sandboxAccess.accessFilePath_withBlock_persistPermission(path, function(){
+        [doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:path + "/" + [sel name] + "." + format];
+      }, true)
+    } else {
+      [doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:path + "/" + [sel name] + "." + format];
+    }
   },
   export_item_to_desktop: function(item,format){
     var desktop = [NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) objectAtIndex:0];

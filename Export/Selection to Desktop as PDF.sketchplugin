@@ -1,5 +1,4 @@
 #import 'library/common.js'
-#import 'library/sandbox.js'
 
 var sel = selection[0],
     rect = [sel rectByAccountingForStyleSize:[[sel absoluteRect] rect]],
@@ -27,7 +26,7 @@ function do_export(){
 }
 
 if (in_sandbox()) {
-  AppSandboxFileAccess.accessFilePath_withBlock_persistPermission(export_filename, do_export, true)
+  sandboxAccess.accessFilePath_withBlock_persistPermission(desktop_path, do_export, true)
 } else {
   do_export()
 }
