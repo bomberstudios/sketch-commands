@@ -1,4 +1,5 @@
 #import 'library/common.js'
+#import 'library/sandbox.js'
 
 var sel = selection[0],
     rect = [sel rectByAccountingForStyleSize:[[sel absoluteRect] rect]],
@@ -20,6 +21,7 @@ if(overwrite){
   export_filename = desktop_path + "/" + [sel name] + "-" + (new Date().getTime()) + ".png";
 }
 
-[doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:export_filename];
-
-com.bomberstudios.reveal_finder_in(export_filename);
+AppSandboxFileAccess.accessFilePath_withBlock_persistPermission(export_filename, function(){
+  [doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:export_filename];
+  com.bomberstudios.reveal_finder_in(export_filename);
+}, true)
