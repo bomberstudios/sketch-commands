@@ -175,3 +175,8 @@ var AppSandboxFileAccess = {
     return true;
   }
 }
+
+function in_sandbox(){
+  var environ = [[NSProcessInfo processInfo] environment];
+  return (nil != [environ objectForKey:@"APP_SANDBOX_CONTAINER_ID"]);
+}
