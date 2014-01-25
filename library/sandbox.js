@@ -35,6 +35,7 @@ var AppSandboxFileAccessPersist = {
   keyForBookmarkDataForURL: function(url) {
     log("AppSandboxFileAccessPersist.keyForBookmarkDataForURL("+url+")")
     var urlStr = [url absoluteString];
+    log("> " + [NSString stringWithFormat:@"bd_%1$@", urlStr])
     return [NSString stringWithFormat:@"bd_%1$@", urlStr];
   },
   bookmarkDataForURL: function(url) {
@@ -65,6 +66,12 @@ var AppSandboxFileAccessPersist = {
 }
 
 var AppSandboxFileAccess = {
+  init: function(opts){
+    this.message = opts.message || "Please authorize Sketch to write to this folder. You will only need to do this once."
+    this.prompt = opts.prompt || "Authorize",
+    this.title = opts.title || "Sketch Authorization"
+    return this;
+  },
   askPermissionForUrl: function(url) {
     log("AppSandboxFileAccess.askPermissionForUrl("+url+")")
     // this url will be the url allowed, it might be a parent url of the url passed in
@@ -88,13 +95,10 @@ var AppSandboxFileAccess = {
 
     // display the open panel
     var openPanel = [NSOpenPanel openPanel];
-    // [openPanel setMessage:self.message];
-    // [openPanel setPrompt:self.prompt];
-    // [openPanel setTitle:self.title];
+    [openPanel setMessage:this.message];
+    [openPanel setPrompt:this.prompt];
+    [openPanel setTitle:this.title];
     // [openPanel setDelegate:openPanelDelegate];
-    [openPanel setMessage:"Please authorize Sketch to write to this folder. You will only need to do this once."];
-    [openPanel setPrompt:"Authorize"];
-    [openPanel setTitle:"Sketch Authorization"];
     [openPanel setCanCreateDirectories:NO];
     [openPanel setCanChooseFiles:YES];
     [openPanel setCanChooseDirectories:YES];
