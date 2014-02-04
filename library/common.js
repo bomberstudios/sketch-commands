@@ -172,6 +172,17 @@ Date.prototype.isoDate = function(){
   return d.year();
 }
 
+function toJSArray(arr) {
+  var len = [arr length],
+      res = [];
+
+  while(len--){
+    res.push(arr[len]);
+  }
+  return res;
+}
+
+
 // Aliases
 alert = com.bomberstudios.alert
 number_to_words = com.bomberstudios.number_to_words
