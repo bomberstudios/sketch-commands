@@ -2,17 +2,17 @@
 
 #import 'library/common.js'
 
-var spacing = [[doc askForUserInput:"Spacing" ofType:1 initialValue:10] integerValue];
+var spacing = [[doc askForUserInput:"Spacing" ofType:1 initialValue:"10"] integerValue];
 
 function sort_by_position(a,b){
   return [[a frame] top] - [[b frame] top];
 }
 
-var sorted_selection = selection.sort(sort_by_position));
-var first_element = sorted_selection[0];
-var top_position = [[first_element frame] top];
+var sorted_selection = toJSArray(selection).sort(sort_by_position),
+    first_element = sorted_selection[0],
+    top_position = [[first_element frame] top];
 
-sorted_selection.each(function(layer){
+sorted_selection.forEach(function(layer){
   [[layer frame] setY:top_position];
   top_position = [[layer frame] top] + [[layer frame] height] + spacing;
 });
