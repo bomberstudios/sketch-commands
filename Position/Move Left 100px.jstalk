@@ -1,6 +1,5 @@
-//Move Left 100px (shift ctrl ←)
+//Move Left 100px (shift option ←)
 for (var i=0; i < selection.length(); i++) {
   var layer = selection[i];
-  var x_pos = [[layer absoluteRect] x];
-  [[layer frame] setX:x_pos - 100];
+  [[layer frame] subtractX: 100];
 }
