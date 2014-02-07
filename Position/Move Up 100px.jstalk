@@ -1,0 +1,6 @@
+//Move Up 100px (shift ctrl ↑)
+for (var i=0; i < selection.length(); i++) {
+  var layer = selection[i];
+  var y_pos = [[layer absoluteRect] y];
+  [[layer frame] setY:y_pos - 100];
+}
