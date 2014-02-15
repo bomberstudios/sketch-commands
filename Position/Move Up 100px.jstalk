@@ -1,0 +1,5 @@
+//Move Up 100px (shift option ↑)
+for (var i=0; i < selection.length(); i++) {
+  var layer = selection[i];
+  [[layer frame] subtractY: 100];
+}

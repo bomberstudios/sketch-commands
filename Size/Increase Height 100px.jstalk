@@ -1,0 +1,5 @@
+//Increase Height 100px (shift command option ↓)
+for (var i=0; i < selection.length(); i++) {
+  var layer = selection[i];
+  [[layer frame] addHeight: 100];
+}
