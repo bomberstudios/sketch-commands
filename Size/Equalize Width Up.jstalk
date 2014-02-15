@@ -1,4 +1,4 @@
-// Equalize Width
+// Equalize Width Up
 // Makes all selected objects the same width
 
 var max_width = 0;
