@@ -1,4 +1,4 @@
-// Equalize Height
+// Equalize Height Up
 // Makes all selected objects the same height
 
 var max_height = 0;
