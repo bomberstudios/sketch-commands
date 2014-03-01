@@ -1,0 +1,33 @@
+#import 'library/common.js'
+
+var sel = selection[0],
+    rect = [sel rectByAccountingForStyleSize:[[sel absoluteRect] rect]],
+    paths = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES),
+    desktop_path = [paths objectAtIndex:0],
+    export_filename,
+    modFlags = [NSEvent modifierFlags],
+    overwrite;
+
+if (modFlags & [NSAlternateKeyMask]) {
+  overwrite = false
+} else {
+  overwrite = true
+}
+
+if(overwrite){
+  export_filename = desktop_path + "/" + [sel name] + ".svg";
+} else {
+  export_filename = desktop_path + "/" + [sel name] + "-" + (new Date().getTime()) + ".svg";
+}
+
+function do_export(){
+  var slice = [GKRect rectWithRect:rect];
+  [doc saveArtboardOrSlice:slice toFile:export_filename];
+  com.bomberstudios.reveal_finder_in(export_filename);
+}
+
+if (in_sandbox()) {
+  sandboxAccess.accessFilePath_withBlock_persistPermission(desktop_path, do_export, true)
+} else {
+  do_export()
+}
