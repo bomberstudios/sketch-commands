@@ -1,0 +1,16 @@
+// Select all Artboards in current page,
+// for the purpose of re-alining with the grid tool.
+// TODO: collapse all artboards
+// TODO: make Sketch show Artboards as selected on the layer list
+
+var artboards = [],
+    page = [doc currentPage]
+
+var sublayers = [[page layers] objectEnumerator]
+while (sublayer = sublayers.nextObject()) {
+  if([sublayer isMemberOfClass:MSArtboardGroup]){
+    artboards.push(sublayer)
+  }
+}
+
+[doc setSelectedLayers:artboards]
