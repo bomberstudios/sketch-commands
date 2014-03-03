@@ -1,9 +1,13 @@
 // Select all Artboards in current page,
 // for the purpose of re-alining with the grid tool.
 // TODO: collapse all artboards
-// TODO: make Sketch show Artboards as selected on the layer list (this is maybe why the align and grid buttons appear disabled, even when you can align and make grids using the Arrange menu)
 
 var page = [doc currentPage],
     artboards = [page artboards]
 
-[doc setSelectedLayers:artboards]
+[page deselectAllLayers]
+
+var loop = [artboards objectEnumerator]
+while (artboard = loop.nextObject()) {
+  [artboard select:true byExpandingSelection:true]
+}
