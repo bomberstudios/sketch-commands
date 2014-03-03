@@ -1,0 +1,13 @@
+// Select All Text Layers
+var page = [doc currentPage],
+    layers = [page children];
+
+[page deselectAllLayers]
+
+var loop = [layers objectEnumerator]
+
+while (layer = [loop nextObject]) {
+  if([layer className] == "MSTextLayer") {
+    [layer select:true byExpandingSelection:true]
+  }
+}
