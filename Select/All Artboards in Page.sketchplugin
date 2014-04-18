@@ -1,6 +1,5 @@
 // Select all Artboards in current page,
-// for the purpose of re-alining with the grid tool.
-// TODO: collapse all artboards
+// for the purpose of copying or realining with the grid tool.
 
 var page = [doc currentPage],
     artboards = [page artboards]
