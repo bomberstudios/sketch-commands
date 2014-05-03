@@ -35,12 +35,15 @@ com.bomberstudios = {
     if (path == undefined) {
       path = com.bomberstudios.getExportPath();
     }
-    [doc pages].each(function(page){
+    var pages = [doc pages]
+    for(var i=0; i < [pages count]; i++){
+      var page = [pages objectAtIndex:i]
       [doc setCurrentPage:page];
       var pagename = [[doc currentPage] name],
-          layers = [[doc currentPage] allSlices];
+          layers = [[doc currentPage] exportableLayers];
 
-      layers.each(function(slice){
+      for (var j=0; j < [layers count]; j++) {
+        var slice = [layers objectAtIndex:j]
         if (in_sandbox()) {
           sandboxAccess.accessFilePath_withBlock_persistPermission(path, function(){
             [doc saveArtboardOrSlice:slice toFile:path + "/" + pagename + "/" + [slice name] + "." + format];
@@ -48,20 +51,23 @@ com.bomberstudios = {
         } else {
           [doc saveArtboardOrSlice:slice toFile:path + "/" + pagename + "/" + [slice name] + "." + format];
         }
-      });
-    });
+      }
+    }
   },
   export_all_artboards: function(format,path){
     log("com.bomberstudios.export_all_artboards()")
     if (path == undefined) {
       path = com.bomberstudios.getExportPath();
     }
-    [doc pages].each(function(page){
-      [doc setCurrentPage:page];
+    var pages = [doc pages]
+    for(var i=0; i < [pages count]; i++){
+      var page = [pages objectAtIndex:i]
+      [doc setCurrentPage:page]
       var pagename = [[doc currentPage] name],
-          layers = [[doc currentPage] artboards];
+          layers = [[doc currentPage] artboards]
 
-      layers.each(function(artboard){
+      for (var j=0; j < [layers count]; j++) {
+        var artboard = [layers objectAtIndex:j]
         if (in_sandbox()) {
           sandboxAccess.accessFilePath_withBlock_persistPermission(path, function() {
             [doc saveArtboardOrSlice:artboard toFile:path + "/" + pagename + "/" + [artboard name] + "." + format];
@@ -70,8 +76,8 @@ com.bomberstudios = {
           log("We are NOT sandboxed")
           [doc saveArtboardOrSlice:artboard toFile:path + "/" + pagename + "/" + [artboard name] + "." + format];
         }
-      });
-    });
+      }
+    }
   },
   export_item: function(item,format,path){
     var sel = item;
@@ -107,11 +113,11 @@ com.bomberstudios = {
   selection_count_is: function(min){
     var min = min || 1,
         title = "Whoops";
-    if ([selection length] < min) {
-      if([selection length] === 0) {
+    if ([selection count] < min) {
+      if([selection count] === 0) {
         title = "Nihilism alert"
       }
-      alert("You need to select at least " + number_to_words(min) + " object" + (min === 1 ? '' : 's') + ", but you selected " + number_to_words([selection length]) + ".", title)
+      alert("You need to select at least " + number_to_words(min) + " object" + (min === 1 ? '' : 's') + ", but you selected " + number_to_words([selection count]) + ".", title)
       return false;
     } else {
       return true;
@@ -154,7 +160,7 @@ com.bomberstudios = {
 
 Array.prototype.each = function(callback){
   var count = 0;
-  for (var i = 0; i < this.length(); i++){
+  for (var i = 0; i < this.length; i++){
     var el = this[i];
     callback.call(this,el,count);
     count++;
@@ -173,7 +179,7 @@ Date.prototype.isoDate = function(){
 }
 
 function toJSArray(arr) {
-  var len = [arr length],
+  var len = [arr count],
       res = [];
 
   while(len--){
