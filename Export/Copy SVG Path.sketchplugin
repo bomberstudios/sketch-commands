@@ -19,9 +19,15 @@ function do_export(){
   [doc saveArtboardOrSlice:slice toFile:export_filename];
   var file_url = [NSURL fileURLWithPath:export_filename]
   var str = [[NSString alloc] initWithContentsOfURL:file_url]
-  var path_string = str.match(/(\s+)d=\"(.+?)\"(\s+)/)[0].trim()
-  log(path_string)
-  copy_text(path_string)
+  var match = str.match(/(\s+)d=\"(.+?)\"(\s+)/)
+  log(match)
+  if(match){
+    var path_string = match[0].trim()
+    copy_text(path_string)
+    [doc showMessage:"SVG Path copied to clipboard"]
+  } else {
+    [doc showMessage:"The selected element is not a path"]
+  }
 }
 
 
