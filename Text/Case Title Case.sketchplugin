@@ -22,12 +22,11 @@ TitleCase = function(txt){
   return txt_tc;
 }
 
-for (var i = 0; i < selection.length(); i++) {
-  var s = selection[i]
+for (var i = 0; i < [selection count]; i++) {
+  var s = [selection objectAtIndex:i]
 
   if([s class] === MSTextLayer){
     var new_text = TitleCase([s stringValue]);
     [s setStringValue:new_text]
-    [s markLayerDirty]
   }
 }
