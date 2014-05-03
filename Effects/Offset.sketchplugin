@@ -7,8 +7,8 @@ if (selection[0] != null) {
   selection.each(function(layer){
     var frame = [layer frame];
 
-    var copy = [layer duplicate];
-    var frame2 = [copy frame];
+    var layer_copy = [layer duplicate];
+    var frame2 = [layer_copy frame];
 
     [frame2 setHeight:  [frame height] + (offset*2)];
     [frame2 setWidth: [frame width] + (offset*2)];
