@@ -10,8 +10,8 @@
   var pages = [doc pages]
   var c = [doc currentPage]
 
-  for(var i=0; i < [pages length]; i++){
-    var current_page = pages[i]
+  for(var i=0; i < [pages count]; i++){
+    var current_page = [pages objectAtIndex:i]
     var current_pagename = [current_page name]
     var regex = /^(\d\d)_/;
     if (regex.test(current_pagename)) {
