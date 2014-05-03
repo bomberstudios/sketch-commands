@@ -85,7 +85,7 @@ com.bomberstudios = {
     }
   },
   export_item_to_desktop: function(item,format){
-    var desktop = [NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    var desktop = [NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, true) objectAtIndex:0];
     com.bomberstudios.export_item(item,format,desktop);
   },
   padNumber: function(num){

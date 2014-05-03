@@ -5,7 +5,7 @@
 function make_temp_folder(){
   var guid = [[NSProcessInfo processInfo] globallyUniqueString]
   var path = tmp_path + guid
-  [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil]
+  [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil]
   export_path = path
 }
 function copy_text(txt){

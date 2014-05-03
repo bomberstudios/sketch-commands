@@ -99,14 +99,14 @@ var AppSandboxFileAccess = {
     [openPanel setPrompt:this.prompt];
     [openPanel setTitle:this.title];
     // [openPanel setDelegate:openPanelDelegate];
-    [openPanel setCanCreateDirectories:NO];
-    [openPanel setCanChooseFiles:YES];
-    [openPanel setCanChooseDirectories:YES];
-    [openPanel setAllowsMultipleSelection:NO];
-    [openPanel setShowsHiddenFiles:NO];
-    [openPanel setExtensionHidden:NO];
+    [openPanel setCanCreateDirectories:false];
+    [openPanel setCanChooseFiles:true];
+    [openPanel setCanChooseDirectories:true];
+    [openPanel setAllowsMultipleSelection:false];
+    [openPanel setShowsHiddenFiles:false];
+    [openPanel setExtensionHidden:false];
     [openPanel setDirectoryURL:url];
-    [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+    [[NSApplication sharedApplication] activateIgnoringOtherApps:true];
     var openPanelButtonPressed = [openPanel runModal];
     if (openPanelButtonPressed == NSFileHandlingPanelOKButton) {
       allowedUrl = [openPanel URL];
