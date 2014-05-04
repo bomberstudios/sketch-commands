@@ -1,0 +1,22 @@
+// Set Size (ctrl s)
+var height = 100,
+    width = 100,
+    size = ""
+
+if ([selection count] === 1) {
+  var layer = selection[0],
+      frame = [layer frame],
+      width = [frame width],
+      height = [frame height]
+}
+size = [doc askForUserInput:"Size (w,h pair)" initialValue:width + "," + height]
+
+var w = eval(size.split(",")[0])
+var h = eval(size.split(",")[1])
+
+for (var i=0; i < [selection count]; i++){
+  var layer = [selection objectAtIndex:i],
+      frame = [layer frame]
+  [frame setWidth:Math.round(w)]
+  [frame setHeight:Math.round(h)]
+}

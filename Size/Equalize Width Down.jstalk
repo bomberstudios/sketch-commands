@@ -1,19 +1,18 @@
 // Equalize Width Down
 // Makes all selected objects the same width
 
-var min_width = 999999;
+var min_width = 999999
 
-for (var i=0; i < selection.length(); i++) {
-  var layer = selection[i],
+for (var i=0; i < [selection count]; i++) {
+  var layer = [selection objectAtIndex:i],
       frame = [layer frame],
-      width = [frame width];
+      width = [frame width]
 
-      min_width = Math.min(width, min_width);
+      min_width = Math.min(width, min_width)
 }
 
-for (var i=0; i < [selection length]; i++){
-  var layer = selection[i],
-      frame = [layer frame];
-  [frame setWidth:Math.round(min_width)];
+for (var i=0; i < [selection count]; i++){
+  var layer = [selection objectAtIndex:i],
+      frame = [layer frame]
+  [frame setWidth:Math.round(min_width)]
 }
-

@@ -1,15 +1,14 @@
 // Width (ctrl w)
 var width = 100;
-if ([selection length] === 1) {
-  var layer = selection[0],
+if ([selection count] === 1) {
+  var layer = [selection firstObject],
       frame = [layer frame],
-      width = [frame width];
+      width = [frame width]
 }
-width = eval([[doc askForUserInput:"Width" ofType:1 initialValue:width] toString]);
+width = eval([[doc askForUserInput:"Width" ofType:1 initialValue:width] toString])
 
-for (var i=0; i < [selection length]; i++){
-  var layer = selection[i],
-      frame = [layer frame];
-  [frame setWidth:Math.round(width)];
+for (var i=0; i < [selection count]; i++){
+  var layer = [selection objectAtIndex:i],
+      frame = [layer frame]
+  [frame setWidth:Math.round(width)]
 }
-
