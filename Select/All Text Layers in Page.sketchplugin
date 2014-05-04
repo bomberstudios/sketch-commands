@@ -1,6 +1,6 @@
 // Select All Text Layers
 var page = [doc currentPage],
-    layers = [page children];
+    layers = [page children]
 
 [page deselectAllLayers]
 

@@ -1,7 +1,7 @@
 // Select Current Artboard
 
-var page = [doc currentPage]
-var current_artboard = [page currentArtboard];
+var page = [doc currentPage],
+    current_artboard = [page currentArtboard]
 
 [page deselectAllLayers]
 
