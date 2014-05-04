@@ -6,7 +6,6 @@ var COPY_LAYER_TYPE = false,
 
 
 var layers = [[doc currentPage] layers],
-    loop = [layers objectEnumerator],
     layer_tree = "",
     layer_depth = 0
 
@@ -29,15 +28,16 @@ function process_layer(layer){
 
   if(is_group(layer) && TRAVERSE_GROUPS){
     // we have a group, so go inside it:
-    var sublayers = [[layer layers] objectEnumerator]
-    while (sublayer = sublayers.nextObject()) {
-      layer_depth++
+    var sublayers = [layer layers]
+    for (var i = 0; i < [sublayers count]; i++) {
+      var sublayer = [sublayers objectAtIndex:i]
       process_layer(sublayer)
     }
   }
 }
 
-while (layer = loop.nextObject()) {
+for (var i = 0; i < [layers count]; i++) {
+  var layer = [layers objectAtIndex:i]
   process_layer(layer)
 }
 
