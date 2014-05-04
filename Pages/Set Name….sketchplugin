@@ -1,6 +1,6 @@
 // Set Page Name
 var c = [doc currentPage],
-    name = [doc askForUserInput:"Page Name" initialValue:[c name]];
+    name = [doc askForUserInput:"Page Name" initialValue:[c name]]
 
 [c setName:name]
 
