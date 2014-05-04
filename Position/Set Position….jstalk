@@ -1,15 +1,17 @@
 // Set position (ctrl shift p)
-var first_item = selection[0];
-var x_pos = [[first_item absoluteRect] rulerX];
-var y_pos = [[first_item absoluteRect] rulerY];
-var position = [doc askForUserInput:"Position (x,y pair)" initialValue:(x_pos + "," + y_pos)];
+var first_item = selection[0],
+    x_pos = [[first_item absoluteRect] rulerX],
+    y_pos = [[first_item absoluteRect] rulerY],
+    // x_pos = [[first_item frame] left],
+    // y_pos = [[first_item frame] top],
+    position = [doc askForUserInput:"Position (x,y pair)" initialValue:(x_pos + "," + y_pos)],
+    x = eval(position.split(",")[0]),
+    y = eval(position.split(",")[1])
 
-for (var i=0; i<selection.length(); i++) {
-  var layer = selection[i];
-  var x = eval(position.split(",")[0]);
-  var y = eval(position.split(",")[1]);
+for (var i=0; i<[selection count]; i++) {
+  var layer = [selection objectAtIndex:i]
 
-  [[layer frame] setX:x];
-  [[layer frame] setY:y];
+  [[layer absoluteRect] setRulerX:x];
+  [[layer absoluteRect] setRulerY:y];
 
 }

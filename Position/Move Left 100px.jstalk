@@ -1,5 +1,5 @@
 //Move Left 100px (shift option ←)
-for (var i=0; i < selection.length(); i++) {
-  var layer = selection[i];
-  [[layer frame] subtractX: 100];
+for (var i=0; i < [selection count]; i++) {
+  var layer = [selection objectAtIndex:i]
+  [[layer frame] subtractX: 100]
 }
