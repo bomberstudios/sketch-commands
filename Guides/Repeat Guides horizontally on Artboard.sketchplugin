@@ -2,7 +2,7 @@
 
 #import 'library/common.js'
 
-var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage];
+var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage]
 
 if (current_artboard != null) {
   var horizontal_guides = [current_artboard horizontalRulerData],

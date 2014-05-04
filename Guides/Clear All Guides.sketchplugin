@@ -2,10 +2,9 @@
 
 #import 'library/common.js'
 
-var pages = [doc pages];
+var pages = [doc pages]
 
-var pagesloop = [pages objectEnumerator];
-
+var pagesloop = [pages objectEnumerator]
 while (page = pagesloop.nextObject()) {
 
   var horizontal_guides = [page horizontalRulerData],

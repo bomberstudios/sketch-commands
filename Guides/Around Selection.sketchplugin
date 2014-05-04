@@ -2,24 +2,23 @@
 
 #import 'library/common.js'
 
-var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage];
-
-if (current_artboard != null) {
+var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage]
+if (current_artboard != null && [selection count] > 0) {
   var horizontal_guides = [current_artboard horizontalRulerData],
       vertical_guides = [current_artboard verticalRulerData];
 
-  selection.each(function(layer){
-    var pos_x  = [[layer absoluteRect] rulerX]
+  for (var i = 0; i < [selection count]; i++) {
+    var layer = [selection objectAtIndex:i],
+        pos_x  = [[layer absoluteRect] rulerX]
         pos_y  = [[layer absoluteRect] rulerY],
         width  = [[layer frame] width],
-        height = [[layer frame] height];
+        height = [[layer frame] height]
 
-    [horizontal_guides addGuideWithValue:pos_x];
-    [horizontal_guides addGuideWithValue:pos_x + width];
-    [vertical_guides   addGuideWithValue:pos_y];
-    [vertical_guides   addGuideWithValue:pos_y + height];
-
-  })
+    [horizontal_guides addGuideWithValue:pos_x]
+    [horizontal_guides addGuideWithValue:pos_x + width]
+    [vertical_guides   addGuideWithValue:pos_y]
+    [vertical_guides   addGuideWithValue:pos_y + height]
+  }
 } else {
   alert("You need to select at least one layer");
 }
