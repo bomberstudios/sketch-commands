@@ -1,0 +1,14 @@
+var page = [doc currentPage],
+    current_artboard = [page currentArtboard]
+
+[page deselectAllLayers]
+
+if (current_artboard != null) {
+  var layers = [current_artboard layers]
+  for (var i = 0; i < [layers count]; i++) {
+    var current_layer = [layers objectAtIndex:i]
+    [current_layer select:true byExpandingSelection:true]
+  }
+} else {
+  [doc showMessage:"No active artboards, select one to make it active."]
+}
