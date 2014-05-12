@@ -1,15 +1,16 @@
 // Make Pill
 
-#import 'library/common.js'
+for (var i = 0; i < [selection count]; i++) {
+  var layer = [selection objectAtIndex:i],
+      frame = [layer frame],
+      firstObject = [[layer layers] firstObject]
 
-selection.each(function(layer){
-  var frame = [layer frame],
-      firstObject = [[layer layers] firstObject];
-      if ([frame width] >= [frame height]) {
-        radius = [frame height] / 2;
-      } else {
-        radius = [frame width] / 2;
-      }
+  if ([frame width] >= [frame height]) {
+    radius = [frame height] / 2
+  } else {
+    radius = [frame width] / 2
+  }
 
-  [firstObject setFixedRadius:Math.round(radius)];
-});
+  [firstObject setFixedRadius:Math.round(radius)]
+  [firstObject resetPointsBasedOnUserInteraction]
+}

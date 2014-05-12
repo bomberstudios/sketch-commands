@@ -1,13 +1,13 @@
 // Custom Rotation (ctrl shift r)
-var rotation = 0;
-if ([selection length] === 1) {
+var rotation = "0";
+
+if ([selection count] === 1) {
   var layer = selection[0],
-      rotation = [layer rotation];
+      rotation = [layer rotation].toString()
 }
-rotation = [[doc askForUserInput:"Rotation" initialValue:rotation] integerValue];
+rotation = [doc askForUserInput:"Rotation" initialValue:rotation]
 
-for (var i=0; i < [selection length]; i++){
-  var layer = selection[i];
-  [layer setRotation:rotation];
+for (var i=0; i < [selection count]; i++){
+  var layer = [selection objectAtIndex:i]
+  [layer setRotation:rotation]
 }
-
