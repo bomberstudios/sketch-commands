@@ -1,0 +1,44 @@
+// Copy to SVG
+
+#import 'library/common.js'
+
+function make_temp_folder(){
+  var guid = [[NSProcessInfo processInfo] globallyUniqueString]
+  var path = tmp_path + guid
+  [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil]
+  export_path = path
+}
+function copy_text(txt){
+  var pasteBoard = [NSPasteboard generalPasteboard]
+  [pasteBoard declareTypes:[NSArray arrayWithObject:NSPasteboardTypeString] owner:nil]
+  [pasteBoard setString:txt forType:NSPasteboardTypeString]
+}
+function do_export(){
+  log("do_export")
+  var slice = [GKRect rectWithRect:rect];
+  [doc saveArtboardOrSlice:slice toFile:export_filename];
+  var file_url = [NSURL fileURLWithPath:export_filename]
+  var str = [[NSString alloc] initWithContentsOfURL:file_url]
+  copy_text(str)
+  [doc showMessage:"SVG Path copied to clipboard"]
+}
+
+
+var sel = selection[0],
+    rect = [sel rectByAccountingForStyleSize:[[sel absoluteRect] rect]],
+    tmp_path = "/tmp/com.bomberstudios.sketch-commands/",
+    export_path;
+
+if (in_sandbox()) {
+  sandboxAccess.accessFilePath_withBlock_persistPermission(tmp_path, make_temp_folder, true)
+} else {
+  make_temp_folder()
+}
+
+var export_filename = export_path + "/" + [sel name] + ".svg";
+
+if (in_sandbox()) {
+  sandboxAccess.accessFilePath_withBlock_persistPermission(tmp_path, do_export, true)
+} else {
+  do_export()
+}
