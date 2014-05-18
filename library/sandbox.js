@@ -147,10 +147,10 @@ var AppSandboxFileAccess = {
     if (bookmarkData) {
       log("Bookmark data found")
       // resolve the bookmark data into an NSURL object that will allow us to use the file
-      var bookmarkDataIsStale;
-      allowedUrl = [NSURL URLByResolvingBookmarkData:bookmarkData options:NSURLBookmarkResolutionWithSecurityScope|NSURLBookmarkResolutionWithoutUI relativeToURL:nil bookmarkDataIsStale:bookmarkDataIsStale error:null];
+      var bookmarkDataIsStalePtr = MOPointer.alloc().init();
+      allowedUrl = [NSURL URLByResolvingBookmarkData:bookmarkData options:NSURLBookmarkResolutionWithSecurityScope|NSURLBookmarkResolutionWithoutUI relativeToURL:nil bookmarkDataIsStale:bookmarkDataIsStalePtr error:null];
       // if the bookmark data is stale, we'll create new bookmark data further down
-      if (bookmarkDataIsStale) {
+      if (bookmarkDataIsStalePtr.value()) {
         bookmarkData = nil;
       }
     } else {
