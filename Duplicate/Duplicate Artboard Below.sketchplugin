@@ -1,0 +1,17 @@
+// Duplicate Artboard Below (shift command d)
+
+#import 'library/common.js'
+
+current_selection = selection[0];
+
+if (current_selection.className() == "MSArtboardGroup") {
+  var parent = current_selection;
+} else {
+  var parent = [current_selection parentGroup];
+}
+
+var copy = [parent duplicate];
+
+[[copy frame] addY:[[parent frame] height] + 100]
+
+[copy select:true byExpandingSelection:false]
