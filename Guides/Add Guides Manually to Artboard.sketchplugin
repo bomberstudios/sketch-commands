@@ -1,7 +1,5 @@
 // Create guides where user wants ;-)
 
-#import 'library/common.js'
-
 var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage];
 
 if (current_artboard != null) {
@@ -20,8 +18,8 @@ if (current_artboard != null) {
   } else if (pos_x == 0 && pos_y != 0) {
     [vertical_guides addGuideWithValue:pos_y];
   } else {
-    alert("I won't add any guides.");
+    [doc showMessage:"No guides added"]
   }
 } else {
-  alert("You need to select at least one artboard.");
+  [doc showMessage:"You need to select at least one artboard"]
 }

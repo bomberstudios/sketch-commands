@@ -1,6 +1,10 @@
 // Clear All Guides
 
-#import 'library/common.js'
+Number.prototype.times = function(callback){
+  for (var s = this - 1; s >= 0; s--){
+    callback.call(this,s);
+  };
+}
 
 var pages = [doc pages]
 

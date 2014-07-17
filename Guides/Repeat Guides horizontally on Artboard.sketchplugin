@@ -1,7 +1,5 @@
 // Create repeating horizonatal guides
 
-#import 'library/common.js'
-
 var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage]
 
 if (current_artboard != null) {
@@ -16,5 +14,5 @@ if (current_artboard != null) {
     pos_x = pos_x + dis;
   }
 } else {
-  alert("You need to select at least one artboard.");
+  [doc showMessage:"You need to select at least one artboard"]
 }

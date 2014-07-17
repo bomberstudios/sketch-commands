@@ -1,7 +1,5 @@
 // Create Guides Around Selection (ctrl shift w)
 
-#import 'library/common.js'
-
 var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage]
 if (current_artboard != null && [selection count] > 0) {
   var horizontal_guides = [current_artboard horizontalRulerData],
@@ -20,5 +18,5 @@ if (current_artboard != null && [selection count] > 0) {
     [vertical_guides   addGuideWithValue:pos_y + height]
   }
 } else {
-  alert("You need to select at least one layer");
+  [doc showMessage:"You need to select at least one layer"]
 }
