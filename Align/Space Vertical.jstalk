@@ -1,6 +1,13 @@
 // Distributes the selected elements vertically, with the same distante beetween them.
 
-#import 'library/common.js'
+function toJSArray(arr) {
+  var len = [arr count],
+      res = [];
+  while(len--){
+    res.push(arr[len]);
+  }
+  return res;
+}
 
 var spacing = [[doc askForUserInput:"Spacing" ofType:1 initialValue:"10"] integerValue];
 
