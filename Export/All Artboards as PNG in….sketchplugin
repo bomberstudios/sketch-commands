@@ -1,0 +1,16 @@
+// Export all artboards in ...
+
+#import 'library/common.js'
+
+if ([doc fileURL] == null) {
+  alert("You need to save your document to use this command");
+} else {
+  var file_path = com.bomberstudios.getFileFolder(),
+      export_to_path = [doc askForUserInput:"Export to…" ofType:2 initialValue:file_path];
+
+   if (0 === export_to_path.indexOf("file://")) {
+      export_to_path = export_to_path.substring(7);
+   }
+
+   com.bomberstudios.export_all_artboards("png", export_to_path);
+}

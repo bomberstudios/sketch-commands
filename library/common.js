@@ -55,10 +55,10 @@ com.bomberstudios = {
     }
   },
   export_all_artboards: function(format,path){
-    log("com.bomberstudios.export_all_artboards()")
     if (path == undefined) {
       path = com.bomberstudios.getExportPath();
     }
+    log("com.bomberstudios.export_all_artboards() to " + path)
     var pages = [doc pages]
     for(var i=0; i < [pages count]; i++){
       var page = [pages objectAtIndex:i]
