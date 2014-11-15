@@ -35,7 +35,9 @@ com.bomberstudios = {
     if (path == undefined) {
       path = com.bomberstudios.getExportPath();
     }
-    var pages = [doc pages]
+
+    var pages = [doc pages];
+
     for(var i=0; i < [pages count]; i++){
       var page = [pages objectAtIndex:i]
       [doc setCurrentPage:page];
@@ -45,7 +47,7 @@ com.bomberstudios = {
       for (var j=0; j < [layers count]; j++) {
         var slice = [layers objectAtIndex:j]
         if (in_sandbox()) {
-          sandboxAccess.accessFilePath_withBlock_persistPermission(path, function(){
+          sandboxAccess.accessFilePath_withBlock_persistPermission(path + "/" + pagename, function(){
             [doc saveArtboardOrSlice:slice toFile:path + "/" + pagename + "/" + [slice name] + "." + format];
           }, true)
         } else {
@@ -69,7 +71,7 @@ com.bomberstudios = {
       for (var j=0; j < [layers count]; j++) {
         var artboard = [layers objectAtIndex:j]
         if (in_sandbox()) {
-          sandboxAccess.accessFilePath_withBlock_persistPermission(path, function() {
+          sandboxAccess.accessFilePath_withBlock_persistPermission(path + "/" + pagename, function() {
             [doc saveArtboardOrSlice:artboard toFile:path + "/" + pagename + "/" + [artboard name] + "." + format];
           }, true)
         } else {

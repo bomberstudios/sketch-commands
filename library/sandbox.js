@@ -33,9 +33,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 var AppSandboxFileAccessPersist = {
   keyForBookmarkDataForURL: function(url) {
-    log("AppSandboxFileAccessPersist.keyForBookmarkDataForURL("+url+")")
     var urlStr = [url absoluteString];
-    log("> " + [NSString stringWithFormat:@"bd_%1$@", urlStr])
     return [NSString stringWithFormat:@"bd_%1$@", urlStr];
   },
   bookmarkDataForURL: function(url) {
@@ -46,6 +44,7 @@ var AppSandboxFileAccessPersist = {
     var subUrl = url;
     while ([subUrl path].length() > 1) { // give up when only '/' is left in the path
       var key = AppSandboxFileAccessPersist.keyForBookmarkDataForURL(subUrl);
+      log("Key: " + key);
       var bookmark = [defaults dataForKey:key];
       if (bookmark) { // if a bookmark is found, return it
         return bookmark;
@@ -53,7 +52,7 @@ var AppSandboxFileAccessPersist = {
       subUrl = [subUrl URLByDeletingLastPathComponent];
     }
     // no bookmarks for the URL, or parent to the URL were found
-    return nil;
+    return null;
   },
   setBookmarkData: function(data, url) {
     log("AppSandboxFileAccessPersist.setBookmarkData")
@@ -151,6 +150,7 @@ var AppSandboxFileAccess = {
       allowedUrl = [NSURL URLByResolvingBookmarkData:bookmarkData options:NSURLBookmarkResolutionWithSecurityScope|NSURLBookmarkResolutionWithoutUI relativeToURL:nil bookmarkDataIsStale:bookmarkDataIsStalePtr error:null];
       // if the bookmark data is stale, we'll create new bookmark data further down
       if (bookmarkDataIsStalePtr.value()) {
+        log("Bookmark data is stale");
         bookmarkData = nil;
       }
     } else {
@@ -171,10 +171,16 @@ var AppSandboxFileAccess = {
     }
     // execute the block with the file access permissions
     try {
-      [allowedUrl startAccessingSecurityScopedResource];
-      block();
-    } finally {
-      [allowedUrl stopAccessingSecurityScopedResource];
+      var insideSandbox = [allowedUrl startAccessingSecurityScopedResource];
+      block.call(this);
+      if (insideSandbox == 0) {
+        log("Now we need to close access to the URL");
+        [allowedUrl stopAccessingSecurityScopedResource];
+      } else {
+        log("For some reason, we couldn't access the sandboxed bookmark");
+      }
+    } catch (error) {
+      log("Something went horribly wrong");
     }
     return true;
   }
