@@ -157,6 +157,9 @@ var AppSandboxFileAccess = {
       log("No bookmark data found")
     }
 
+    // For now, disregard bookmarks, every export needs to be authorized
+    allowedUrl = false;
+
     // if allowed url is nil, we need to ask the user for permission
     if (!allowedUrl) {
       allowedUrl = AppSandboxFileAccess.askPermissionForUrl(fileUrl);
