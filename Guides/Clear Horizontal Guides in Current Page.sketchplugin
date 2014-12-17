@@ -6,6 +6,11 @@ Number.prototype.times = function(callback){
   };
 }
 
+// Make sure rulers are visible
+if ([doc isRulersVisible] == 0) {
+  [doc toggleRulers]
+}
+
 var horizontal_guides = [[doc currentPage] horizontalRulerData],
     vertical_guides = [[doc currentPage] verticalRulerData];
 

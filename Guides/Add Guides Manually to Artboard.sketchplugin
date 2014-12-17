@@ -3,6 +3,11 @@
 var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage];
 
 if (current_artboard != null) {
+  // Make sure rulers are visible
+  if ([doc isRulersVisible] == 0) {
+    [doc toggleRulers]
+  }
+
   var horizontal_guides = [current_artboard horizontalRulerData],
       vertical_guides = [current_artboard verticalRulerData],
       question = [doc askForUserInput:"Position (x,y pair)" initialValue:(0 + "," + 0)];

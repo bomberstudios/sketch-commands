@@ -1,5 +1,10 @@
 // Create Guides Around Selection (ctrl shift w)
 
+// Make sure rulers are visible
+if ([doc isRulersVisible] == 0) {
+  [doc toggleRulers]
+}
+
 var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage]
 if (current_artboard != null && [selection count] > 0) {
   var horizontal_guides = [current_artboard horizontalRulerData],

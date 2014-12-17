@@ -3,6 +3,11 @@
 var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage]
 
 if (current_artboard != null) {
+  // Make sure rulers are visible
+  if ([doc isRulersVisible] == 0) {
+    [doc toggleRulers]
+  }
+
   var horizontal_guides = [current_artboard horizontalRulerData],
       question = [doc askForUserInput:"Add (pos_x, distance, times)" initialValue:(0 + "," + 0 + "," + 0)]
       pos_x = eval(question.split(",")[0]),
