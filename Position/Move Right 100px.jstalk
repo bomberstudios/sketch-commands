@@ -1,4 +1,4 @@
-//Move Right 100px (shift option →)
+//Move Right 100px
 for (var i=0; i < [selection count]; i++) {
   var layer = [selection objectAtIndex:i]
   var x = layer.frame().x()
