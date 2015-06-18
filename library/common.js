@@ -36,49 +36,55 @@ com.bomberstudios = {
       path = com.bomberstudios.getExportPath();
     }
 
-    var pages = [doc pages];
+    function export_loop() {
+      var pages = [doc pages];
+      for(var i=0; i < [pages count]; i++){
+        var page = [pages objectAtIndex:i]
+        [doc setCurrentPage:page];
+        var pagename = [[doc currentPage] name],
+            layers = [[doc currentPage] exportableLayers];
 
-    for(var i=0; i < [pages count]; i++){
-      var page = [pages objectAtIndex:i]
-      [doc setCurrentPage:page];
-      var pagename = [[doc currentPage] name],
-          layers = [[doc currentPage] exportableLayers];
-
-      for (var j=0; j < [layers count]; j++) {
-        var slice = [layers objectAtIndex:j]
-        if (in_sandbox()) {
-          sandboxAccess.accessFilePath_withBlock_persistPermission(path + "/" + pagename, function(){
-            [doc saveArtboardOrSlice:slice toFile:path + "/" + pagename + "/" + [slice name] + "." + format];
-          }, true)
-        } else {
+        for (var j=0; j < [layers count]; j++) {
+          var slice = [layers objectAtIndex:j]
           [doc saveArtboardOrSlice:slice toFile:path + "/" + pagename + "/" + [slice name] + "." + format];
         }
       }
+    }
+
+    if (in_sandbox()) {
+      sandboxAccess.accessFilePath_withBlock_persistPermission(path + "/" + pagename, export_loop, true);
+    } else {
+      export_loop();
     }
   },
   export_all_artboards: function(format,path){
     if (path == undefined) {
       path = com.bomberstudios.getExportPath();
     }
-    log("com.bomberstudios.export_all_artboards() to " + path)
-    var pages = [doc pages]
-    for(var i=0; i < [pages count]; i++){
-      var page = [pages objectAtIndex:i]
-      [doc setCurrentPage:page]
-      var pagename = [[doc currentPage] name],
-          layers = [[doc currentPage] artboards]
+    log("com.bomberstudios.export_all_artboards() to " + path);
 
-      for (var j=0; j < [layers count]; j++) {
-        var artboard = [layers objectAtIndex:j]
-        if (in_sandbox()) {
-          sandboxAccess.accessFilePath_withBlock_persistPermission(path + "/" + pagename, function() {
-            [doc saveArtboardOrSlice:artboard toFile:path + "/" + pagename + "/" + [artboard name] + "." + format];
-          }, true)
-        } else {
-          log("We are NOT sandboxed")
+    function export_loop() {
+      var pages = [doc pages]
+      for(var i=0; i < [pages count]; i++){
+        var page = [pages objectAtIndex:i]
+        [doc setCurrentPage:page]
+        var pagename = [[doc currentPage] name],
+            layers = [[doc currentPage] artboards]
+
+        log("Exporting page " + (i+1) + "/" + [pages count] + " (" + pagename + ") with " + [layers count] + " artboards");
+
+        for (var j=0; j < [layers count]; j++) {
+          var artboard = [layers objectAtIndex:j]
           [doc saveArtboardOrSlice:artboard toFile:path + "/" + pagename + "/" + [artboard name] + "." + format];
         }
       }
+    }
+
+    if (in_sandbox()) {
+      sandboxAccess.accessFilePath_withBlock_persistPermission(path, export_loop, true);
+    } else {
+      log("We are NOT sandboxed");
+      export_loop();
     }
   },
   export_item: function(item,format,path){
