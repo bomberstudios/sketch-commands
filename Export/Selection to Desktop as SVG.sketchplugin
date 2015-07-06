@@ -1,7 +1,7 @@
 #import 'library/common.js'
 
 var sel = selection[0],
-    rect = [sel rectByAccountingForStyleSize:[[sel absoluteRect] rect]],
+    rect = [sel absoluteInfluenceRect],
     paths = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, true),
     desktop_path = [paths objectAtIndex:0],
     export_filename,
@@ -21,8 +21,7 @@ if(overwrite){
 }
 
 function do_export(){
-  var slice = [GKRect rectWithRect:rect];
-  [doc saveArtboardOrSlice:slice toFile:export_filename];
+  [doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:export_filename];
   com.bomberstudios.reveal_finder_in(export_filename);
 }
 

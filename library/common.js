@@ -83,7 +83,7 @@ com.bomberstudios = {
   },
   export_item: function(item,format,path){
     var sel = item;
-    var rect = [sel rectByAccountingForStyleSize:[[sel absoluteRect] rect]];
+    var rect = [sel absoluteInfluenceRect];
     if (in_sandbox()) {
       sandboxAccess.accessFilePath_withBlock_persistPermission(path, function(){
         [doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:path + "/" + [sel name] + "." + format];

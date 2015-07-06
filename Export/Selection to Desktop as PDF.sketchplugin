@@ -1,7 +1,7 @@
 #import 'library/common.js'
 
 var sel = selection[0],
-    rect = [sel rectByAccountingForStyleSize:[[sel absoluteRect] rect]],
+    rect = [sel absoluteInfluenceRect],
     paths = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, true),
     desktop_path = [paths objectAtIndex:0],
     export_filename,

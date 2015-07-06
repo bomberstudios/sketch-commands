@@ -25,7 +25,7 @@ function do_export(){
 
 
 var sel = selection[0],
-    rect = [sel rectByAccountingForStyleSize:[[sel absoluteRect] rect]],
+    rect = [sel absoluteInfluenceRect],
     tmp_path = "/tmp/com.bomberstudios.sketch-commands/",
     export_path;
 
