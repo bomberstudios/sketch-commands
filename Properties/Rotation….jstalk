@@ -1,4 +1,4 @@
-// Custom Rotation (ctrl shift r)
+// Custom Rotation
 var rotation = "0";
 
 if ([selection count] === 1) {
