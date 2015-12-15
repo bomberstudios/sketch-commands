@@ -28,9 +28,5 @@ var onRun = function(context) {
     com.bomberstudios.reveal_finder_in(export_filename);
   }
 
-  if (in_sandbox()) {
-    sandboxAccess.accessFilePath_withBlock_persistPermission(desktop_path, do_export, true)
-  } else {
-    do_export()
-  }
+  do_export()
 }

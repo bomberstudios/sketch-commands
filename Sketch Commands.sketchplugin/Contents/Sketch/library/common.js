@@ -1,6 +1,3 @@
-@import '../library/sandbox.js'
-@import '../library/sandbox-sketch-utils.js'
-
 var com = {};
 
 com.bomberstudios = {
@@ -11,13 +8,7 @@ com.bomberstudios = {
   },
   create_folder: function(path) {
     var file_manager = [NSFileManager defaultManager];
-    if (in_sandbox()) {
-      sandboxAccess.accessFilePath_withBlock_persistPermission(path, function(){
-        [file_manager createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil];
-      }, true)
-    } else {
-      [file_manager createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil];
-    }
+    [file_manager createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil];
   },
   getFileFolder: function(){
     var doc = context.document,
@@ -49,13 +40,7 @@ com.bomberstudios = {
 
       for (var j=0; j < [layers count]; j++) {
         var slice = [layers objectAtIndex:j]
-        if (in_sandbox()) {
-          sandboxAccess.accessFilePath_withBlock_persistPermission(path + "/" + pagename, function(){
-            [doc saveArtboardOrSlice:slice toFile:path + "/" + pagename + "/" + [slice name] + "." + format];
-          }, true)
-        } else {
-          [doc saveArtboardOrSlice:slice toFile:path + "/" + pagename + "/" + [slice name] + "." + format];
-        }
+        [doc saveArtboardOrSlice:slice toFile:path + "/" + pagename + "/" + [slice name] + "." + format];
       }
     }
   },
@@ -74,14 +59,7 @@ com.bomberstudios = {
 
       for (var j=0; j < [layers count]; j++) {
         var artboard = [layers objectAtIndex:j]
-        if (in_sandbox()) {
-          sandboxAccess.accessFilePath_withBlock_persistPermission(path + "/" + pagename, function() {
-            [doc saveArtboardOrSlice:artboard toFile:path + "/" + pagename + "/" + [artboard name] + "." + format];
-          }, true)
-        } else {
-          log("We are NOT sandboxed")
-          [doc saveArtboardOrSlice:artboard toFile:path + "/" + pagename + "/" + [artboard name] + "." + format];
-        }
+        [doc saveArtboardOrSlice:artboard toFile:path + "/" + pagename + "/" + [artboard name] + "." + format];
       }
     }
   },
@@ -89,13 +67,7 @@ com.bomberstudios = {
     var doc = context.document,
         sel = item,
         rect = [sel absoluteInfluenceRect];
-    if (in_sandbox()) {
-      sandboxAccess.accessFilePath_withBlock_persistPermission(path, function(){
-        [doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:path + "/" + [sel name] + "." + format];
-      }, true)
-    } else {
-      [doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:path + "/" + [sel name] + "." + format];
-    }
+    [doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:path + "/" + [sel name] + "." + format];
   },
   export_item_to_desktop: function(item,format){
     var desktop = [NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, true) objectAtIndex:0];

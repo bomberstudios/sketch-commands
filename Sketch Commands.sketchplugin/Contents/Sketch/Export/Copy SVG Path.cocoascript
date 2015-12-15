@@ -40,17 +40,9 @@ var onRun = function(context) {
       tmp_path = "/tmp/com.bomberstudios.sketch-commands/",
       export_path;
 
-  if (in_sandbox()) {
-    sandboxAccess.accessFilePath_withBlock_persistPermission(tmp_path, make_temp_folder, true)
-  } else {
-    make_temp_folder()
-  }
+  make_temp_folder()
 
   var export_filename = export_path + "/" + [sel name] + ".svg";
 
-  if (in_sandbox()) {
-    sandboxAccess.accessFilePath_withBlock_persistPermission(tmp_path, do_export, true)
-  } else {
-    do_export()
-  }
+  do_export()
 }
