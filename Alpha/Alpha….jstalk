@@ -1,8 +1,0 @@
-// Custom Opacity
-var alpha = parseInt([doc askForUserInput:"Opacity percentage?" initialValue:100])
-
-var c = [selection count]
-for(var i=0; i < c; i++){
-  var layer = [selection objectAtIndex:i]
-  [[[layer style] contextSettings] setOpacity:(alpha/100)]
-}

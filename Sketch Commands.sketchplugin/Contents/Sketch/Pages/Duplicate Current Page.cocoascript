@@ -1,0 +1,10 @@
+var onRun = function(context) {
+  var doc = context.document,
+      page = [doc currentPage],
+      newPage = [page copy]
+
+  newPage.setName([page name] + " Copy")
+
+  [[doc documentData] addPage:newPage]
+  [doc setCurrentPage:newPage]
+}

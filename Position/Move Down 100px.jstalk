@@ -1,6 +1,0 @@
-//Move Down 100px
-for (var i=0; i < [selection count]; i++) {
-  var layer = [selection objectAtIndex:i]
-  var y = layer.frame().y()
-  layer.frame().y = (y+100)
-}

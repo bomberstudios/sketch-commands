@@ -1,0 +1,19 @@
+// Duplicate Artboard Right
+// @shortcut cmd shift f
+
+var onRun = function(context) {
+  var selection = context.selection,
+      current_selection = selection[0];
+
+  if (current_selection.className() == "MSArtboardGroup") {
+    var parent = current_selection;
+  } else {
+    var parent = [current_selection parentGroup];
+  }
+
+  var artboard_copy = [parent duplicate];
+
+  [[artboard_copy frame] addX:[[parent frame] width] + 100]
+
+  [artboard_copy select:true byExpandingSelection:false]
+}

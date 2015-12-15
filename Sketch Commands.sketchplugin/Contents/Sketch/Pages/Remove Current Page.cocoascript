@@ -1,0 +1,11 @@
+@import '../library/common.js'
+
+var onRun = function(context) {
+  var doc = context.document
+
+  if([[doc pages] count] == 1) {
+    alert("You can’t remove the last page on your document.")
+  } else {
+    [doc removePage:[doc currentPage]]
+  }
+}

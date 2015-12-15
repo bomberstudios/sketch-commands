@@ -1,8 +1,0 @@
-for (var i = 0; i < [selection count]; i++) {
-  var s = [selection objectAtIndex:i]
-
-  if([s class] === MSTextLayer){
-    var new_text = [s stringValue].toLowerCase();
-    [s setStringValue:new_text]
-  }
-}

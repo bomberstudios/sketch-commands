@@ -1,0 +1,21 @@
+// Equalize Height Up
+// Makes all selected objects the same height
+
+var onRun = function(context) {
+  var selection = context.selection
+      max_height = 0
+
+  for (var i=0; i < [selection count]; i++) {
+    var layer = [selection objectAtIndex:i],
+        frame = [layer frame],
+        height = [frame height]
+
+        max_height = Math.max(height, max_height)
+  }
+
+  for (var i=0; i < [selection count]; i++){
+    var layer = [selection objectAtIndex:i],
+        frame = [layer frame]
+    [frame setHeight:Math.round(max_height)]
+  }
+}

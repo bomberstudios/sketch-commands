@@ -1,0 +1,21 @@
+// Width
+// @shortcut ctrl w
+
+var onRun = function(context) {
+  var doc = context.document,
+      selection = context.selection,
+      width = 100;
+
+  if ([selection count] === 1) {
+    var layer = [selection firstObject],
+        frame = [layer frame],
+        width = [frame width]
+  }
+  width = eval([[doc askForUserInput:"Width" ofType:1 initialValue:width] toString])
+
+  for (var i=0; i < [selection count]; i++){
+    var layer = [selection objectAtIndex:i],
+        frame = [layer frame]
+    [frame setWidth:Math.round(width)]
+  }
+}

@@ -1,0 +1,48 @@
+// Copy Layer List to Clipboard
+
+var onRun = function(context) {
+  var doc = context.document
+
+  // Change this variables to configure the script:
+  var COPY_LAYER_TYPE = false,
+      TRAVERSE_GROUPS = true
+
+
+  var layers = [[doc currentPage] layers],
+      layer_tree = "",
+      layer_depth = 0
+
+  function copy_text(txt){
+    var pasteBoard = [NSPasteboard generalPasteboard]
+    [pasteBoard declareTypes:[NSArray arrayWithObject:NSPasteboardTypeString] owner:nil]
+    [pasteBoard setString:txt forType:NSPasteboardTypeString]
+  }
+  function is_group(layer) {
+    return [layer isMemberOfClass:[MSLayerGroup class]] || [layer isMemberOfClass:[MSArtboardGroup class]]
+  }
+
+  function process_layer(layer){
+    log("processing layer " + layer + " at depth " + layer_depth)
+    if (COPY_LAYER_TYPE) {
+      layer_tree += [layer class] + ": "
+    }
+    layer_tree += [layer name]
+    layer_tree += "\n"
+
+    if(is_group(layer) && TRAVERSE_GROUPS){
+      // we have a group, so go inside it:
+      var sublayers = [layer layers]
+      for (var i = 0; i < [sublayers count]; i++) {
+        var sublayer = [sublayers objectAtIndex:i]
+        process_layer(sublayer)
+      }
+    }
+  }
+
+  for (var i = 0; i < [layers count]; i++) {
+    var layer = [layers objectAtIndex:i]
+    process_layer(layer)
+  }
+
+  copy_text(layer_tree)
+}

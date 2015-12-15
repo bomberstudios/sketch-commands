@@ -1,7 +1,0 @@
-// Save document and export slices (ctrl shift s)
-
-#import 'library/common.js'
-
-[doc saveDocument:doc];
-
-com.bomberstudios.export_all_slices("png");

@@ -1,5 +1,0 @@
-//Increase Height 100px (shift command option ↓)
-for (var i=0; i < [selection count]; i++) {
-  var layer = [selection objectAtIndex:i]
-  [[layer frame] addHeight: 100]
-}

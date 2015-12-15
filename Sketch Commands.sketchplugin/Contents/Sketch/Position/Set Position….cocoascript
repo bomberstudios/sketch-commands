@@ -1,0 +1,24 @@
+// Set position
+// @shortcut ctrl shift p
+
+var onRun = function(context) {
+  var doc = context.document,
+      selection = context.selection
+
+  var first_item = selection[0],
+      x_pos = [[first_item absoluteRect] rulerX],
+      y_pos = [[first_item absoluteRect] rulerY],
+      // x_pos = [[first_item frame] left],
+      // y_pos = [[first_item frame] top],
+      position = [doc askForUserInput:"Position (x,y pair)" initialValue:(x_pos + "," + y_pos)],
+      x = eval(position.split(",")[0]),
+      y = eval(position.split(",")[1])
+
+  for (var i=0; i<[selection count]; i++) {
+    var layer = [selection objectAtIndex:i]
+
+    [[layer absoluteRect] setRulerX:x];
+    [[layer absoluteRect] setRulerY:y];
+
+  }
+}

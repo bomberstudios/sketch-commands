@@ -1,0 +1,16 @@
+// Set Page Name
+
+var onRun = function(context) {
+  var doc = context.document,
+      c = [doc currentPage],
+      name = [doc askForUserInput:"Page Name" initialValue:[c name]]
+
+  [c setName:name]
+
+  // This is here to force a redraw of the page list widget.
+  // Otherwise, our new page name won't be shown on the UI until we change
+  // the current page name
+  [doc setCurrentPage:0]
+  [doc setCurrentPage:([[doc pages] count] - 1)]
+  [doc setCurrentPage:c]
+}

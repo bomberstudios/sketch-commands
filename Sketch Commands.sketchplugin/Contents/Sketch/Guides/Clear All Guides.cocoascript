@@ -1,0 +1,52 @@
+// Clear All Guides
+
+var onRun = function(context) {
+  var doc = context.document
+
+  Number.prototype.times = function(callback){
+    for (var s = this - 1; s >= 0; s--){
+      callback.call(this,s);
+    };
+  }
+
+  // Make sure rulers are visible
+  if ([doc isRulersVisible] == 0) {
+    [doc toggleRulers]
+  }
+
+  var pages = [doc pages]
+
+  var pagesloop = [pages objectEnumerator]
+  while (page = pagesloop.nextObject()) {
+
+    var horizontal_guides = [page horizontalRulerData],
+        vertical_guides = [page verticalRulerData];
+
+    // Remove horizontal guides in page
+    [horizontal_guides numberOfGuides].times(function(){
+      [horizontal_guides removeGuideAtIndex:0];
+    })
+    // Remove vertical guides in page
+    [vertical_guides numberOfGuides].times(function(){
+      [vertical_guides removeGuideAtIndex:0];
+    })
+
+    var artboards = [page artboards];
+
+    var loop = [artboards objectEnumerator];
+
+    while (artboard = loop.nextObject()) {
+      var horizontal_guides = [artboard horizontalRulerData],
+          vertical_guides = [artboard verticalRulerData];
+
+      // Remove horizontal guides in artboard
+      [horizontal_guides numberOfGuides].times(function(){
+        [horizontal_guides removeGuideAtIndex:0];
+      })
+      // Remove vertical guides in artboard
+      [vertical_guides numberOfGuides].times(function(){
+        [vertical_guides removeGuideAtIndex:0];
+      })
+    }
+  }
+}

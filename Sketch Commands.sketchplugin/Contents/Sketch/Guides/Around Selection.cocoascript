@@ -1,0 +1,33 @@
+// Create Guides Around Selection
+// @shortcut ctrl shift w
+
+var onRun = function(context) {
+  var doc = context.document,
+      selection = context.selection
+
+  // Make sure rulers are visible
+  if ([doc isRulersVisible] == 0) {
+    [doc toggleRulers]
+  }
+
+  var current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage]
+  if (current_artboard != null && [selection count] > 0) {
+    var horizontal_guides = [current_artboard horizontalRulerData],
+        vertical_guides = [current_artboard verticalRulerData];
+
+    for (var i = 0; i < [selection count]; i++) {
+      var layer = [selection objectAtIndex:i],
+          pos_x  = [[layer absoluteRect] rulerX]
+          pos_y  = [[layer absoluteRect] rulerY],
+          width  = [[layer frame] width],
+          height = [[layer frame] height]
+
+      [horizontal_guides addGuideWithValue:pos_x]
+      [horizontal_guides addGuideWithValue:pos_x + width]
+      [vertical_guides   addGuideWithValue:pos_y]
+      [vertical_guides   addGuideWithValue:pos_y + height]
+    }
+  } else {
+    [doc showMessage:"You need to select at least one layer"]
+  }
+}

@@ -1,0 +1,13 @@
+// Fix position
+
+var onRun = function(context) {
+  var selection = context.selection
+
+  for (var i = 0; i < [selection count]; i++) {
+    var layer = [selection objectAtIndex:i]
+    [[layer frame] setWidth:Math.round([[layer frame] width])]
+    [[layer frame] setHeight:Math.round([[layer frame] height])]
+    [[layer frame] setX:Math.round([[layer frame] x])]
+    [[layer frame] setY:Math.round([[layer frame] y])]
+  }
+}

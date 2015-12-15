@@ -1,0 +1,604 @@
+{
+  "name": "Sketch Commands",
+  "description": "A collection of script commands for Bohemian Coding's Sketch.app",
+  "author": "Ale Muñoz",
+  "email": "bomberstudios@gmail.com",
+  "homepage": "http://github.com/bomberstudios/sketch-commands",
+  "version": "0.1.0",
+  "identifier": "com.bomberstudios.sketch.commands",
+  "compatibleVersion": "3.4.4",
+  "bundleVersion": 1,
+  "commands": [
+    {
+      "name": "Space Horizontal",
+      "identifier": "spacehorizontal",
+      "shortcut": "",
+      "script": "Align/Space Horizontal.cocoascript"
+    },
+    {
+      "name": "Space Vertical",
+      "identifier": "spacevertical",
+      "shortcut": "",
+      "script": "Align/Space Vertical.cocoascript"
+    },
+    {
+      "name": "Alpha…",
+      "identifier": "alpha…",
+      "shortcut": "",
+      "script": "Alpha/Alpha….cocoascript"
+    },
+    {
+      "name": "Duplicate Artboard Below",
+      "identifier": "duplicateartboardbelow",
+      "shortcut": "cmd shift d",
+      "script": "Duplicate/Duplicate Artboard Below.cocoascript"
+    },
+    {
+      "name": "Duplicate Artboard Right",
+      "identifier": "duplicateartboardright",
+      "shortcut": "cmd shift f",
+      "script": "Duplicate/Duplicate Artboard Right.cocoascript"
+    },
+    {
+      "name": "Offset",
+      "identifier": "offset",
+      "shortcut": "",
+      "script": "Effects/Offset.cocoascript"
+    },
+    {
+      "name": "Repeat Horizontal",
+      "identifier": "repeathorizontal",
+      "shortcut": "",
+      "script": "Effects/Repeat Horizontal.cocoascript"
+    },
+    {
+      "name": "Repeat Vertical",
+      "identifier": "repeatvertical",
+      "shortcut": "",
+      "script": "Effects/Repeat Vertical.cocoascript"
+    },
+    {
+      "name": "All Artboards as PDF",
+      "identifier": "allartboardsaspdf",
+      "shortcut": "",
+      "script": "Export/All Artboards as PDF.cocoascript"
+    },
+    {
+      "name": "All Artboards as PNG in…",
+      "identifier": "allartboardsaspngin…",
+      "shortcut": "",
+      "script": "Export/All Artboards as PNG in….cocoascript"
+    },
+    {
+      "name": "All Artboards as PNG",
+      "identifier": "allartboardsaspng",
+      "shortcut": "",
+      "script": "Export/All Artboards as PNG.cocoascript"
+    },
+    {
+      "name": "All Artboards as SVG",
+      "identifier": "allartboardsassvg",
+      "shortcut": "",
+      "script": "Export/All Artboards as SVG.cocoascript"
+    },
+    {
+      "name": "All Slices as PDF",
+      "identifier": "allslicesaspdf",
+      "shortcut": "",
+      "script": "Export/All Slices as PDF.cocoascript"
+    },
+    {
+      "name": "All Slices as PNG in ZIP",
+      "identifier": "allslicesaspnginzip",
+      "shortcut": "",
+      "script": "Export/All Slices as PNG in ZIP.cocoascript"
+    },
+    {
+      "name": "All Slices as PNG in…",
+      "identifier": "allslicesaspngin…",
+      "shortcut": "",
+      "script": "Export/All Slices as PNG in….cocoascript"
+    },
+    {
+      "name": "All Slices as PNG",
+      "identifier": "allslicesaspng",
+      "shortcut": "ctrl alt shift x",
+      "script": "Export/All Slices as PNG.cocoascript"
+    },
+    {
+      "name": "All Slices as SVG",
+      "identifier": "allslicesassvg",
+      "shortcut": "",
+      "script": "Export/All Slices as SVG.cocoascript"
+    },
+    {
+      "name": "Copy SVG Path",
+      "identifier": "copysvgpath",
+      "shortcut": "",
+      "script": "Export/Copy SVG Path.cocoascript"
+    },
+    {
+      "name": "Copy Selection to SVG",
+      "identifier": "copyselectiontosvg",
+      "shortcut": "",
+      "script": "Export/Copy Selection to SVG.cocoascript"
+    },
+    {
+      "name": "Save and Export Slices",
+      "identifier": "saveandexportslices",
+      "shortcut": "ctrl shift s",
+      "script": "Export/Save and Export Slices.cocoascript"
+    },
+    {
+      "name": "Selection to Desktop as PDF",
+      "identifier": "selectiontodesktopaspdf",
+      "shortcut": "",
+      "script": "Export/Selection to Desktop as PDF.cocoascript"
+    },
+    {
+      "name": "Selection to Desktop as PNG",
+      "identifier": "selectiontodesktopaspng",
+      "shortcut": "",
+      "script": "Export/Selection to Desktop as PNG.cocoascript"
+    },
+    {
+      "name": "Selection to Desktop as SVG",
+      "identifier": "selectiontodesktopassvg",
+      "shortcut": "",
+      "script": "Export/Selection to Desktop as SVG.cocoascript"
+    },
+    {
+      "name": "Add Guides Manually to Artboard",
+      "identifier": "addguidesmanuallytoartboard",
+      "shortcut": "",
+      "script": "Guides/Add Guides Manually to Artboard.cocoascript"
+    },
+    {
+      "name": "Around Selection",
+      "identifier": "aroundselection",
+      "shortcut": "ctrl shift w",
+      "script": "Guides/Around Selection.cocoascript"
+    },
+    {
+      "name": "Clear All Guides in Current Artboard",
+      "identifier": "clearallguidesincurrentartboard",
+      "shortcut": "",
+      "script": "Guides/Clear All Guides in Current Artboard.cocoascript"
+    },
+    {
+      "name": "Clear All Guides in Current Page",
+      "identifier": "clearallguidesincurrentpage",
+      "shortcut": "",
+      "script": "Guides/Clear All Guides in Current Page.cocoascript"
+    },
+    {
+      "name": "Clear All Guides",
+      "identifier": "clearallguides",
+      "shortcut": "",
+      "script": "Guides/Clear All Guides.cocoascript"
+    },
+    {
+      "name": "Clear Horizontal Guides in Current Page",
+      "identifier": "clearhorizontalguidesincurrentpage",
+      "shortcut": "",
+      "script": "Guides/Clear Horizontal Guides in Current Page.cocoascript"
+    },
+    {
+      "name": "Clear Vertical Guides in Current Page",
+      "identifier": "clearverticalguidesincurrentpage",
+      "shortcut": "",
+      "script": "Guides/Clear Vertical Guides in Current Page.cocoascript"
+    },
+    {
+      "name": "Repeat Guides horizontally on Artboard",
+      "identifier": "repeatguideshorizontallyonartboard",
+      "shortcut": "",
+      "script": "Guides/Repeat Guides horizontally on Artboard.cocoascript"
+    },
+    {
+      "name": "Repeat Guides vertically on Artboard",
+      "identifier": "repeatguidesverticallyonartboard",
+      "shortcut": "",
+      "script": "Guides/Repeat Guides vertically on Artboard.cocoascript"
+    },
+    {
+      "name": "Copy Layer List",
+      "identifier": "copylayerlist",
+      "shortcut": "",
+      "script": "Layers/Copy Layer List.cocoascript"
+    },
+    {
+      "name": "Artboards Add",
+      "identifier": "artboardsadd",
+      "shortcut": "",
+      "script": "Numberize/Artboards Add.cocoascript"
+    },
+    {
+      "name": "Artboards Remove",
+      "identifier": "artboardsremove",
+      "shortcut": "",
+      "script": "Numberize/Artboards Remove.cocoascript"
+    },
+    {
+      "name": "Pages Add",
+      "identifier": "pagesadd",
+      "shortcut": "",
+      "script": "Numberize/Pages Add.cocoascript"
+    },
+    {
+      "name": "Pages Remove",
+      "identifier": "pagesremove",
+      "shortcut": "",
+      "script": "Numberize/Pages Remove.cocoascript"
+    },
+    {
+      "name": "Add New Page",
+      "identifier": "addnewpage",
+      "shortcut": "ctrl shift w",
+      "script": "Pages/Add New Page.cocoascript"
+    },
+    {
+      "name": "Duplicate Current Page",
+      "identifier": "duplicatecurrentpage",
+      "shortcut": "",
+      "script": "Pages/Duplicate Current Page.cocoascript"
+    },
+    {
+      "name": "Remove Current Page",
+      "identifier": "removecurrentpage",
+      "shortcut": "",
+      "script": "Pages/Remove Current Page.cocoascript"
+    },
+    {
+      "name": "Set Name…",
+      "identifier": "setname…",
+      "shortcut": "",
+      "script": "Pages/Set Name….cocoascript"
+    },
+    {
+      "name": "Kitchen Sink",
+      "identifier": "kitchensink",
+      "shortcut": "",
+      "script": "Playground/Kitchen Sink.cocoascript"
+    },
+    {
+      "name": "Fix Position",
+      "identifier": "fixposition",
+      "shortcut": "",
+      "script": "Position/Fix Position.cocoascript"
+    },
+    {
+      "name": "Move Down 100px",
+      "identifier": "movedown100px",
+      "shortcut": "",
+      "script": "Position/Move Down 100px.cocoascript"
+    },
+    {
+      "name": "Move Left 100px",
+      "identifier": "moveleft100px",
+      "shortcut": "",
+      "script": "Position/Move Left 100px.cocoascript"
+    },
+    {
+      "name": "Move Right 100px",
+      "identifier": "moveright100px",
+      "shortcut": "",
+      "script": "Position/Move Right 100px.cocoascript"
+    },
+    {
+      "name": "Move Up 100px",
+      "identifier": "moveup100px",
+      "shortcut": "",
+      "script": "Position/Move Up 100px.cocoascript"
+    },
+    {
+      "name": "Set Position…",
+      "identifier": "setposition…",
+      "shortcut": "ctrl shift p",
+      "script": "Position/Set Position….cocoascript"
+    },
+    {
+      "name": "Swap Positions",
+      "identifier": "swappositions",
+      "shortcut": "",
+      "script": "Position/Swap Positions.cocoascript"
+    },
+    {
+      "name": "Make Pill",
+      "identifier": "makepill",
+      "shortcut": "",
+      "script": "Properties/Make Pill.cocoascript"
+    },
+    {
+      "name": "Rotation…",
+      "identifier": "rotation…",
+      "shortcut": "",
+      "script": "Properties/Rotation….cocoascript"
+    },
+    {
+      "name": "Set Radius…",
+      "identifier": "setradius…",
+      "shortcut": "ctrl alt r",
+      "script": "Properties/Set Radius….cocoascript"
+    },
+    {
+      "name": "All Artboards in Page",
+      "identifier": "allartboardsinpage",
+      "shortcut": "",
+      "script": "Select/All Artboards in Page.cocoascript"
+    },
+    {
+      "name": "All Layers in Current Artboard",
+      "identifier": "alllayersincurrentartboard",
+      "shortcut": "",
+      "script": "Select/All Layers in Current Artboard.cocoascript"
+    },
+    {
+      "name": "All Text Layers in Page",
+      "identifier": "alltextlayersinpage",
+      "shortcut": "",
+      "script": "Select/All Text Layers in Page.cocoascript"
+    },
+    {
+      "name": "Current Artboard",
+      "identifier": "currentartboard",
+      "shortcut": "",
+      "script": "Select/Current Artboard.cocoascript"
+    },
+    {
+      "name": "Equalize Height Down",
+      "identifier": "equalizeheightdown",
+      "shortcut": "",
+      "script": "Size/Equalize Height Down.cocoascript"
+    },
+    {
+      "name": "Equalize Height Up",
+      "identifier": "equalizeheightup",
+      "shortcut": "",
+      "script": "Size/Equalize Height Up.cocoascript"
+    },
+    {
+      "name": "Equalize Width Down",
+      "identifier": "equalizewidthdown",
+      "shortcut": "",
+      "script": "Size/Equalize Width Down.cocoascript"
+    },
+    {
+      "name": "Equalize Width Up",
+      "identifier": "equalizewidthup",
+      "shortcut": "",
+      "script": "Size/Equalize Width Up.cocoascript"
+    },
+    {
+      "name": "Height +100px",
+      "identifier": "height+100px",
+      "shortcut": "cmd shift alt ↓",
+      "script": "Size/Height +100px.cocoascript"
+    },
+    {
+      "name": "Height -100px",
+      "identifier": "height-100px",
+      "shortcut": "cmd shift alt ↑",
+      "script": "Size/Height -100px.cocoascript"
+    },
+    {
+      "name": "Height…",
+      "identifier": "height…",
+      "shortcut": "ctrl alt h",
+      "script": "Size/Height….cocoascript"
+    },
+    {
+      "name": "Scale to 16-9",
+      "identifier": "scaleto16-9",
+      "shortcut": "",
+      "script": "Size/Scale to 16-9.cocoascript"
+    },
+    {
+      "name": "Scale to 4-3",
+      "identifier": "scaleto4-3",
+      "shortcut": "",
+      "script": "Size/Scale to 4-3.cocoascript"
+    },
+    {
+      "name": "Set Size…",
+      "identifier": "setsize…",
+      "shortcut": "ctrl s",
+      "script": "Size/Set Size….cocoascript"
+    },
+    {
+      "name": "Width +100px",
+      "identifier": "width+100px",
+      "shortcut": "cmd shift alt →",
+      "script": "Size/Width +100px.cocoascript"
+    },
+    {
+      "name": "Width -100px",
+      "identifier": "width-100px",
+      "shortcut": "cmd shift alt ←",
+      "script": "Size/Width -100px.cocoascript"
+    },
+    {
+      "name": "Width…",
+      "identifier": "width…",
+      "shortcut": "ctrl w",
+      "script": "Size/Width….cocoascript"
+    },
+    {
+      "name": "Case Sentence case",
+      "identifier": "casesentencecase",
+      "shortcut": "",
+      "script": "Text/Case Sentence case.cocoascript"
+    },
+    {
+      "name": "Case Title Case",
+      "identifier": "casetitlecase",
+      "shortcut": "",
+      "script": "Text/Case Title Case.cocoascript"
+    },
+    {
+      "name": "Case UPPERCASE",
+      "identifier": "caseuppercase",
+      "shortcut": "",
+      "script": "Text/Case UPPERCASE.cocoascript"
+    },
+    {
+      "name": "Case lowercase",
+      "identifier": "caselowercase",
+      "shortcut": "",
+      "script": "Text/Case lowercase.cocoascript"
+    }
+  ],
+  "menu": {
+    "isRoot": true,
+    "items": [
+      {
+        "title": "Align",
+        "items": [
+          "spacehorizontal",
+          "spacevertical"
+        ]
+      },
+      {
+        "title": "Alpha",
+        "items": [
+          "alpha…"
+        ]
+      },
+      {
+        "title": "Duplicate",
+        "items": [
+          "duplicateartboardbelow",
+          "duplicateartboardright"
+        ]
+      },
+      {
+        "title": "Effects",
+        "items": [
+          "offset",
+          "repeathorizontal",
+          "repeatvertical"
+        ]
+      },
+      {
+        "title": "Export",
+        "items": [
+          "allartboardsaspdf",
+          "allartboardsaspngin…",
+          "allartboardsaspng",
+          "allartboardsassvg",
+          "allslicesaspdf",
+          "allslicesaspnginzip",
+          "allslicesaspngin…",
+          "allslicesaspng",
+          "allslicesassvg",
+          "copysvgpath",
+          "copyselectiontosvg",
+          "saveandexportslices",
+          "selectiontodesktopaspdf",
+          "selectiontodesktopaspng",
+          "selectiontodesktopassvg"
+        ]
+      },
+      {
+        "title": "Guides",
+        "items": [
+          "addguidesmanuallytoartboard",
+          "aroundselection",
+          "clearallguidesincurrentartboard",
+          "clearallguidesincurrentpage",
+          "clearallguides",
+          "clearhorizontalguidesincurrentpage",
+          "clearverticalguidesincurrentpage",
+          "repeatguideshorizontallyonartboard",
+          "repeatguidesverticallyonartboard"
+        ]
+      },
+      {
+        "title": "Layers",
+        "items": [
+          "copylayerlist"
+        ]
+      },
+      {
+        "title": "Numberize",
+        "items": [
+          "artboardsadd",
+          "artboardsremove",
+          "pagesadd",
+          "pagesremove"
+        ]
+      },
+      {
+        "title": "Pages",
+        "items": [
+          "addnewpage",
+          "duplicatecurrentpage",
+          "removecurrentpage",
+          "setname…"
+        ]
+      },
+      {
+        "title": "Playground",
+        "items": [
+          "kitchensink"
+        ]
+      },
+      {
+        "title": "Position",
+        "items": [
+          "fixposition",
+          "movedown100px",
+          "moveleft100px",
+          "moveright100px",
+          "moveup100px",
+          "setposition…",
+          "swappositions"
+        ]
+      },
+      {
+        "title": "Properties",
+        "items": [
+          "makepill",
+          "rotation…",
+          "setradius…"
+        ]
+      },
+      {
+        "title": "Select",
+        "items": [
+          "allartboardsinpage",
+          "alllayersincurrentartboard",
+          "alltextlayersinpage",
+          "currentartboard"
+        ]
+      },
+      {
+        "title": "Size",
+        "items": [
+          "equalizeheightdown",
+          "equalizeheightup",
+          "equalizewidthdown",
+          "equalizewidthup",
+          "height+100px",
+          "height-100px",
+          "height…",
+          "scaleto16-9",
+          "scaleto4-3",
+          "setsize…",
+          "width+100px",
+          "width-100px",
+          "width…"
+        ]
+      },
+      {
+        "title": "Text",
+        "items": [
+          "casesentencecase",
+          "casetitlecase",
+          "caseuppercase",
+          "caselowercase"
+        ]
+      }
+    ]
+  }
+}
