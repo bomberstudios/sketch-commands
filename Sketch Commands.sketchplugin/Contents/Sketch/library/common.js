@@ -70,7 +70,7 @@ com.bomberstudios = {
     [doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:path + "/" + [sel name] + "." + format];
   },
   export_item_to_desktop: function(item,format){
-    var desktop = [NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, true) objectAtIndex:0];
+    var desktop = [@"~/Desktop" stringByExpandingTildeInPath]
     com.bomberstudios.export_item(item,format,desktop);
   },
   padNumber: function(num){

@@ -5,8 +5,7 @@ var onRun = function(context) {
       selection = context.selection,
       sel = selection[0],
       rect = [sel absoluteInfluenceRect],
-      paths = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, true),
-      desktop_path = [paths objectAtIndex:0],
+      desktop_path = [@"~/Desktop" stringByExpandingTildeInPath],
       export_filename,
       modFlags = [NSEvent modifierFlags],
       overwrite;
