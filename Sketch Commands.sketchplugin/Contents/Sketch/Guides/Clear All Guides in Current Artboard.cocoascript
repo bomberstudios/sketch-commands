@@ -1,0 +1,34 @@
+// Clear All Guides in Current Artboard
+
+var onRun = function(context) {
+  var doc = context.document
+
+  Number.prototype.times = function(callback){
+    for (var s = this - 1; s >= 0; s--){
+      callback.call(this,s);
+    };
+  }
+
+  var current_artboard = [[doc currentPage] currentArtboard];
+
+  if (current_artboard != null) {
+    // Make sure rulers are visible
+    if ([doc isRulersVisible] == 0) {
+      [doc toggleRulers]
+    }
+
+    var horizontal_guides = [current_artboard horizontalRulerData],
+        vertical_guides = [current_artboard verticalRulerData];
+
+    // Remove horizontal guides
+    [horizontal_guides numberOfGuides].times(function(){
+      [horizontal_guides removeGuideAtIndex:0];
+    })
+    // Remove vertical guides
+    [vertical_guides numberOfGuides].times(function(){
+      [vertical_guides removeGuideAtIndex:0];
+    })
+  } else {
+    [doc showMessage:"You need to select at least one layer from an artboard"]
+  }
+}

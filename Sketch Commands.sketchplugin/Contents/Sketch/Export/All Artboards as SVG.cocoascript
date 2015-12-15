@@ -1,0 +1,13 @@
+// Export all artboards
+
+@import '../library/common.js'
+
+var onRun = function(context) {
+  var doc = context.document
+
+  if ([doc fileURL] == null) {
+    alert("You need to save your document to use this command");
+  } else {
+    com.bomberstudios.export_all_artboards("svg");
+  }
+}

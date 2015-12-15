@@ -1,0 +1,16 @@
+// Export all slices in…
+
+@import '../library/common.js'
+
+var onRun = function(context) {
+  var doc = context.document
+
+  if ([doc fileURL] == null) {
+    alert("You need to save your document to use this command");
+  } else {
+    var file_path = com.bomberstudios.getFileFolder(),
+        export_to_path = [doc askForUserInput:"Export to…" ofType:2 initialValue:file_path];
+
+    com.bomberstudios.export_all_slices("png", export_to_path);
+  }
+}

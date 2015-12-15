@@ -1,0 +1,26 @@
+// Create Offset
+var onRun = function(context) {
+  var doc = context.document,
+      selection = context.selection
+
+  if ([selection count] > 0) {
+    var offset = [doc askForUserInput:"Offset distance (in pixels):" initialValue:"0"]
+
+    var c = [selection count]
+    for(var i=0; i < c; i++){
+      var layer = [selection objectAtIndex:i]
+      var frame = [layer frame]
+
+      var layer_copy = [layer duplicate]
+      var frame2 = [layer_copy frame]
+
+      [frame2 setHeight:  [frame height] + (offset*2)]
+      [frame2 setWidth: [frame width] + (offset*2)]
+
+      [frame2 setX: [frame x] + [frame width]/2 - [frame2 width]/2]
+      [frame2 setY: [frame y] + [frame height]/2 - [frame2 height]/2]
+    }
+  } else {
+    alert("You need to select at least one layer.");
+  }
+}

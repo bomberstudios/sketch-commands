@@ -1,0 +1,24 @@
+// Select all Artboards in current page,
+// for the purpose of copying or realining with the grid tool.
+
+var onRun = function(context) {
+  var doc = context.document,
+      initialPage = [doc currentPage],
+      artboards = [initialPage artboards]
+
+  // Deselect all artboards in all pages
+  var pages = [doc pages]
+  for (var i=0; i < [pages count]; i++) {
+    var pageObject = [pages objectAtIndex:i]
+    [doc setCurrentPage:pageObject]
+    var currentPage = [doc currentPage]
+    [currentPage deselectAllLayers]
+  }
+
+  var loop = [artboards objectEnumerator]
+  while (artboard = loop.nextObject()) {
+    [artboard select:true byExpandingSelection:true]
+  }
+
+  [doc setCurrentPage:initialPage]
+}

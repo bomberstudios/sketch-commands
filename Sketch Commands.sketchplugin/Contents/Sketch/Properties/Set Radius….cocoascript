@@ -1,0 +1,26 @@
+// Set Radius
+// @shortcut ctrl alt r
+
+var onRun = function(context) {
+  var doc = context.document,
+      selection = context.selection
+
+  var value = "5";
+  if ([selection count] === 1) {
+    var layer = selection[0],
+        value = [[[layer layers] firstObject] fixedRadius]
+        // If radius is 0 you're probably running this command to set a positive corner radius...
+        if (value === 0) value = "5"
+  }
+
+  var radius = [doc askForUserInput:"Radius" initialValue:value]
+
+  for (var i=0; i<[selection count]; i++) {
+    var layer = [selection objectAtIndex:i],
+        frame = [layer frame],
+        firstObject = [[layer layers] firstObject]
+
+    [firstObject setFixedRadius:Math.round(radius)]
+    [firstObject resetPointsBasedOnUserInteraction]
+  }
+}

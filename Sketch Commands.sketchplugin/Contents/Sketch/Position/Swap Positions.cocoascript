@@ -1,0 +1,23 @@
+// Swap two elements' positions
+
+var onRun = function(context) {
+  var doc = context.document,
+      selection = context.selection
+
+  if ( [selection count] == 2){
+
+    var first_object = selection[0],
+        second_object = selection[1],
+        first_position  = { left: [[first_object frame] left], top: [[first_object frame] top] },
+        second_position = { left: [[second_object frame] left], top: [[second_object frame] top] }
+
+    [[first_object frame] setX: (second_position.left)]
+    [[first_object frame] setY: (second_position.top)]
+
+    [[second_object frame] setX: (first_position.left)]
+    [[second_object frame] setY: (first_position.top)]
+
+  } else {
+    [doc showMessage:"You need to select exactly two objects"]
+  }
+}

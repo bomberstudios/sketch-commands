@@ -1,0 +1,21 @@
+// Equalize Height Down
+// Makes all selected objects the same height
+
+var onRun = function(context) {
+  var selection = context.selection,
+      min_height = 999999
+
+  for (var i=0; i < [selection count]; i++) {
+    var layer = [selection objectAtIndex:i],
+        frame = [layer frame],
+        height = [frame height]
+
+        min_height = Math.min(height, min_height)
+  }
+
+  for (var i=0; i < [selection count]; i++){
+    var layer = [selection objectAtIndex:i],
+        frame = [layer frame]
+    [frame setHeight:Math.round(min_height)]
+  }
+}

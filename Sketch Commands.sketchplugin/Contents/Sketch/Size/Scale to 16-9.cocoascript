@@ -1,0 +1,18 @@
+/**
+ * Scale the selected object(s) so that they have a 16:9 aspect ratio.
+ */
+
+var onRun = function(context) {
+  var selection = context.selection
+
+  for (var i=0; i < [selection count]; i++){
+    var layer = [selection objectAtIndex:i],
+        frame = [layer frame],
+        width = [frame width],
+        height = [frame height];
+
+    [frame setWidth:width];
+    [frame setHeight:(width / (16/9))];
+
+  }
+}

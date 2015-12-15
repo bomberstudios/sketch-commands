@@ -1,0 +1,25 @@
+// Export all slices as PNG, make a ZIP with the export folder, and open Finder
+
+@import '../library/common.js'
+
+var onRun = function(context) {
+  var doc = context.document
+
+  if ([doc fileURL] == null) {
+    alert("You need to save your document to use this command");
+  } else {
+    com.bomberstudios.export_all_slices("png");
+
+    // ZIP folder
+    var task = [[NSTask alloc] init],
+        file_basename = [doc displayName]).split('.sketch')[0],
+        argsArray = [NSArray arrayWithObjects:"-r", com.bomberstudios.isodate() + "-" + file_basename + ".zip", file_basename + "_export", nil];
+
+    [task setCurrentDirectoryPath:com.bomberstudios.getFileFolder()];
+    [task setLaunchPath:"/usr/bin/zip"];
+    [task setArguments:argsArray];
+    [task launch];
+
+    com.bomberstudios.reveal_finder_in(com.bomberstudios.getFileFolder() + com.bomberstudios.isodate() + "-" + file_basename + ".zip");
+  }
+}

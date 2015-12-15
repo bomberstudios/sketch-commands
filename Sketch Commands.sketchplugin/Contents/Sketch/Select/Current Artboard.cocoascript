@@ -1,0 +1,15 @@
+// Select Current Artboard
+
+var onRun = function(context) {
+  var doc = context.document,
+      page = [doc currentPage],
+      current_artboard = [page currentArtboard]
+
+  [page deselectAllLayers]
+
+  if (current_artboard != null) {
+    [current_artboard select:true byExpandingSelection:true]
+  } else {
+    alert("You need to select at least one layer from an artboard");
+  }
+}

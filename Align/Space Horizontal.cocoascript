@@ -1,0 +1,29 @@
+// Distributes the selected elements horizontally, with the same distante beetween them.
+var onRun = function(context) {
+  var doc = context.document,
+      selection = context.selection
+
+  function toJSArray(arr) {
+    var len = [arr count],
+        res = [];
+    while(len--){
+      res.push(arr[len]);
+    }
+    return res;
+  }
+
+  var spacing = [[doc askForUserInput:"Spacing" ofType:1 initialValue:"10"] integerValue];
+
+  function sort_by_position(a,b){
+    return [[a frame] left] - [[b frame] left];
+  }
+
+  var sorted_selection = toJSArray(selection).sort(sort_by_position),
+      first_element = sorted_selection[0],
+      left_position = [[first_element frame] left];
+
+  sorted_selection.forEach(function(layer){
+    [[layer frame] setX:left_position];
+    left_position = [[layer frame] left] + [[layer frame] width] + spacing;
+  });
+}

@@ -1,0 +1,21 @@
+// Make Pill
+
+var onRun = function(context) {
+  var doc = context.document,
+      selection = context.selection
+
+  for (var i = 0; i < [selection count]; i++) {
+    var layer = [selection objectAtIndex:i],
+        frame = [layer frame],
+        firstObject = [[layer layers] firstObject]
+
+    if ([frame width] >= [frame height]) {
+      radius = [frame height] / 2
+    } else {
+      radius = [frame width] / 2
+    }
+
+    [firstObject setFixedRadius:Math.round(radius)]
+    [firstObject resetPointsBasedOnUserInteraction]
+  }
+}

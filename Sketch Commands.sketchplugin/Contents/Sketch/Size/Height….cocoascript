@@ -1,0 +1,21 @@
+// Height
+// @shortcut ctrl alt h
+
+var onRun = function(context) {
+  var doc = context.document,
+      selection = context.selection,
+      height = 100;
+
+  if ([selection count] === 1) {
+    var layer = selection[0],
+        frame = [layer frame],
+        height = [frame height]
+  }
+  height = eval([[doc askForUserInput:"Height" initialValue:height] toString])
+
+  for (var i=0; i < [selection count]; i++){
+    var layer = [selection objectAtIndex:i],
+        frame = [layer frame]
+    [frame setHeight:Math.round(height)]
+  }
+}

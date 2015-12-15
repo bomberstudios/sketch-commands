@@ -1,7 +1,0 @@
-var page = [doc currentPage],
-    newPage = [page copy]
-
-newPage.setName([page name] + " Copy")
-
-[[doc documentData] addPage:newPage]
-[doc setCurrentPage:newPage]

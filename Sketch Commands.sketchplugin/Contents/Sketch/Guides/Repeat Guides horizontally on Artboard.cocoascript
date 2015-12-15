@@ -1,0 +1,26 @@
+// Create repeating horizonatal guides
+
+var onRun = function(context) {
+  var doc = context.document,
+      current_artboard = [[doc currentPage] currentArtboard] || [doc currentPage]
+
+  if (current_artboard != null) {
+    // Make sure rulers are visible
+    if ([doc isRulersVisible] == 0) {
+      [doc toggleRulers]
+    }
+
+    var horizontal_guides = [current_artboard horizontalRulerData],
+        question = [doc askForUserInput:"Add (pos_x, distance, times)" initialValue:(0 + "," + 0 + "," + 0)]
+        pos_x = eval(question.split(",")[0]),
+        dis = eval(question.split(",")[1]),
+        times = eval(question.split(",")[2]);
+
+    for (var x=0; x<times; x++) {
+      [horizontal_guides addGuideWithValue:pos_x];
+      pos_x = pos_x + dis;
+    }
+  } else {
+    [doc showMessage:"You need to select at least one artboard"]
+  }
+}

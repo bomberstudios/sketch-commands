@@ -1,0 +1,34 @@
+var onRun = function(context) {
+  var doc = context.document
+
+  function pad_number(n){
+    if ( n < 10 ) {
+      return "0" + n
+    } else {
+      return n.toString()
+    }
+  }
+  var page_number = 1
+  var pages = [doc pages]
+  var c = [doc currentPage]
+
+  for(var i=0; i < [pages count]; i++){
+    var current_page = [pages objectAtIndex:i]
+    var current_pagename = [current_page name]
+    var regex = /^(\d\d)_/;
+    if (regex.test(current_pagename)) {
+      var new_pagename = current_pagename.replace(regex,pad_number(page_number) + "_")
+      [current_page setName:new_pagename]
+    } else {
+      [current_page setName:(pad_number(page_number) + "_" + current_pagename)]
+    }
+    page_number++
+  }
+
+  // This is here to force a redraw of the page list widget.
+  // Otherwise, our new page name won't be shown on the UI until we change
+  // the current page name
+  [doc setCurrentPage:0]
+  [doc setCurrentPage:([[doc pages] count] - 1)]
+  [doc setCurrentPage:c]
+}
