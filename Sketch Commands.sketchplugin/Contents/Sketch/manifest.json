@@ -449,7 +449,7 @@
     }
   ],
   "menu": {
-    "isRoot": true,
+    "isRoot": false,
     "items": [
       {
         "title": "Align",
