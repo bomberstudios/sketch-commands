@@ -1,23 +1,22 @@
 # Sketch Commands
 
-Sketch Commands is a port of some of my [Orange Commands for Fireworks](http://orangecommands.com) for Bohemian Coding’s [Sketch.app](http://bohemiancoding.com/sketch/).
-
-It works both with the App Store and the non-sandboxed versions of Sketch (i.e: the beta).
-
+Sketch Commands is a port of some of my [Orange Commands for Fireworks](https://github.com/bomberstudios/fireworks) for Bohemian Coding’s [Sketch.app](http://sketchapp.com).
 
 ## Installation
 
 1. [Download the ZIP file with the commands](https://github.com/bomberstudios/sketch-commands/zipball/master)
-2. Copy the contents of the ZIP to your plugins folder. If you're using Sketch 3, choose **Plugins › Reveal Plugins Folder…** to open it. If you're using Sketch 2, choose **Plugins › Custom Script…**, click the gear icon, and then choose **Open Plugins Folder**.
+2. Unzip
+3. Double click the .sketchplugin file to install
 
 ## More info
 
-If you are curious about scripting Sketch, here's a link to the official [Sketch Scripting API documentation](http://bohemiancoding.com/sketch/support/developer/).
+If you are curious about scripting Sketch, here's a link to the official [Sketch Scripting API documentation](http://developer.sketchapp.com).
 
 
 ## Thanks
 
-Huge props to Bohemian Coding (and specially Pieter Omvlee) for their collaboration on making the scripting API a reality.
+- Huge props to Bohemian Coding (and specially Pieter Omvlee) for their collaboration on making the scripting API a reality.
+- Hugs to [@guerrero](https://github.com/guerrero) for updating the project to the new bundle format for Plugins in Sketch.
 
 ## License
 
