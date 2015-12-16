@@ -1,36 +1,23 @@
 var onRun = function(context) {
-  var selection = context.selection
+  var selection = context.selection,
+      selectionCount = [selection count]
 
-  var WHITESPACE = /\s/,
-      BAD_CHARS = /(\,|\.|\+|\;|\:)/
+  function titleCase(string){
+    var titleRegExp = /\b([a-z])[A-Za-z]*\b/g
 
-  TitleCase = function(txt){
-
-    var arr = txt.split(WHITESPACE),
-        txt_lc = txt.toLowerCase(),
-        txt_tc = txt_lc;
-
-    for (var i = 0; i < arr.length; i++) {
-      var word = arr[i].replace(BAD_CHARS,''),
-          word_lc = word.toLowerCase(),
-          word_uc = word.toUpperCase(),
-          word_tc;
-
-      word_tc = word_uc.slice(0,1) + word_lc.slice(1)
-
-      var match = RegExp("\\b" + word_lc + "\\b")
-      txt_tc = txt_tc.replace(match,word_tc)
-    }
-
-    return txt_tc;
+    return string
+      .toLowerCase()
+      .replace(titleRegExp, function titleCaseReplacer(match, letter) {
+        return letter.toUpperCase() + match.substr(1)
+      })
   }
 
-  for (var i = 0; i < [selection count]; i++) {
-    var s = [selection objectAtIndex:i]
+  for (var i = 0; i < selectionCount; i++) {
+    var layer = [selection objectAtIndex:i]
 
-    if([s class] === MSTextLayer){
-      var new_text = TitleCase([s stringValue]);
-      [s setStringValue:new_text]
+    if([layer class] === MSTextLayer){
+      var sentenceCaseString = titleCase([layer stringValue]);
+      [layer replaceTextPreservingAttributeRanges:sentenceCaseString]
     }
   }
 }

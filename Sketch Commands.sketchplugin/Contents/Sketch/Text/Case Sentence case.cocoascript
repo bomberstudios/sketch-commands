@@ -1,32 +1,23 @@
 var onRun = function(context) {
   var selection = context.selection,
-      SentenceBoundary = "."
+      selectionCount = [selection count]
 
-  SentenceCase = function(txt){
+  function sentenceCase(string){
+    var sentenceRegExp = /(^|\.\s+)([a-z])/g
 
-    var arr = txt.split(SentenceBoundary),
-        txt_lc = txt.toLowerCase(),
-        txt_sc = txt_lc;
-
-    for (var i = 0; i < arr.length; i++) {
-      var sentence = arr[i].trim(),
-          sentence_lc = sentence.toLowerCase(),
-          sentence_uc = sentence.toUpperCase(),
-          sentence_sc;
-
-      sentence_sc = sentence_uc.slice(0,1) + sentence_lc.slice(1)
-      txt_sc = txt_sc.replace(sentence_lc,sentence_sc)
-    }
-
-    return txt_sc;
+    return string
+      .toLowerCase()
+      .replace(sentenceRegExp, function sentenceCaseReplacer(match, _, letter) {
+        return match.replace(letter, letter.toUpperCase())
+      })
   }
 
-  for (var i = 0; i < [selection count]; i++) {
-    var s = [selection objectAtIndex:i]
+  for (var i = 0; i < selectionCount; i++) {
+    var layer = [selection objectAtIndex:i]
 
-    if([s class] === MSTextLayer){
-      var new_text = SentenceCase([s stringValue]);
-      [s setStringValue:new_text]
+    if([layer class] === MSTextLayer){
+      var sentenceCaseString = sentenceCase([layer stringValue]);
+      [layer replaceTextPreservingAttributeRanges:sentenceCaseString]
     }
   }
 }
