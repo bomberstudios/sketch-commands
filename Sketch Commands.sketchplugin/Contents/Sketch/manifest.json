@@ -148,6 +148,18 @@
       "script": "Export/Selection to Desktop as SVG.cocoascript"
     },
     {
+      "name": "Whole Page to Desktop as PDF",
+      "identifier": "wholepagetodesktopaspdf",
+      "shortcut": "",
+      "script": "Export/Whole Page to Desktop as PDF.cocoascript"
+    },
+    {
+      "name": "Whole Page to Desktop as PNG",
+      "identifier": "wholepagetodesktopaspng",
+      "shortcut": "",
+      "script": "Export/Whole Page to Desktop as PNG.cocoascript"
+    },
+    {
       "name": "Add Guides Manually to Artboard",
       "identifier": "addguidesmanuallytoartboard",
       "shortcut": "",
@@ -496,7 +508,9 @@
           "saveandexportslices",
           "selectiontodesktopaspdf",
           "selectiontodesktopaspng",
-          "selectiontodesktopassvg"
+          "selectiontodesktopassvg",
+          "wholepagetodesktopaspdf",
+          "wholepagetodesktopaspng"
         ]
       },
       {

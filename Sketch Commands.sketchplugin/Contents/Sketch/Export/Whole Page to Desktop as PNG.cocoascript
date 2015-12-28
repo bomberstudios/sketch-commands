@@ -1,0 +1,8 @@
+var onRun = function(context) {
+  var doc = context.document
+  var all = doc.currentPage().children()
+  var rect = doc.currentView().totalRectForLayers(all)
+  var exportRequest = MSExportRequest.requestWithRect_scale(rect,2)
+  doc.saveArtboardOrSlice_toFile(exportRequest, "~/Desktop/page.png")
+  doc.showMessage("File exported to your desktop as 'page.png'")
+}
