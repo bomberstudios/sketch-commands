@@ -12,6 +12,6 @@ var onRun = function(context) {
   }
 
   var artboard_copy = parent.duplicate();
-  artboard_copy.frame().addY(parent.frame().height() + 100)
+  artboard_copy.frame().y = artboard_copy.frame().y() + parent.frame().height() + 100
   artboard_copy.select_byExpandingSelection(true,false)
 }
