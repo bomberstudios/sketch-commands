@@ -1,10 +1,10 @@
-// Distributes the selected elements horizontally, with the same distante beetween them.
+// Distributes the selected elements horizontally, with the same distance beetween them.
 var onRun = function(context) {
   var doc = context.document,
       selection = context.selection
 
   function toJSArray(arr) {
-    var len = [arr count],
+    var len = arr.count(),
         res = [];
     while(len--){
       res.push(arr[len]);
@@ -12,18 +12,18 @@ var onRun = function(context) {
     return res;
   }
 
-  var spacing = [[doc askForUserInput:"Spacing" ofType:1 initialValue:"10"] integerValue];
+  var spacing = doc.askForUserInput_initialValue_("Spacing",10);
 
   function sort_by_position(a,b){
-    return [[a frame] left] - [[b frame] left];
+    return a.frame().left() - b.frame().left();
   }
 
   var sorted_selection = toJSArray(selection).sort(sort_by_position),
       first_element = sorted_selection[0],
-      left_position = [[first_element frame] left];
+      left_position = first_element.frame().left();
 
   sorted_selection.forEach(function(layer){
-    [[layer frame] setX:left_position];
-    left_position = [[layer frame] left] + [[layer frame] width] + spacing;
+    layer.frame.setX(left_position);
+    left_position = layer.frame().left() + layer.frame().width() + spacing;
   });
 }
