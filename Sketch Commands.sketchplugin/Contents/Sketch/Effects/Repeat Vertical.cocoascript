@@ -1,21 +1,19 @@
 // Repeat Vertical
 
-@import '../library/common.js'
+@import '../library/utils.js'
 
 var onRun = function(context) {
   var doc = context.document,
-      selection = context.selection,
-      repeats = [[doc askForUserInput:"Repeats" initialValue:"9"] integerValue],
-      spacing = [[doc askForUserInput:"Spacing" initialValue:"10"] integerValue];
+      selection = toJSArray(context.selection),
+      repeats = Number(doc.askForUserInput_initialValue("Repeats", 9)),
+      spacing = Number(doc.askForUserInput_initialValue("Spacing", 10))
 
   selection.each(function(layer){
-    frame = [layer frame];
+    frame = layer.frame()
     repeats.times(function(r){
-      var layer_copy = [layer duplicate],
-          frame2 = [layer_copy frame];
-
-      [frame2 setY:[frame y] + ([frame height]+spacing)*r]
-
-    });
-  });
+      var layer_copy = layer.duplicate(),
+          frame2 = layer_copy.frame();
+      frame2.y = frame.y() + (frame.height()+spacing)*r
+    })
+  })
 }
