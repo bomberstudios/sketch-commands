@@ -9,10 +9,10 @@ var onRun = function(context) {
     initialValue = selection[0].style().contextSettings().opacity() * 100
   }
 
-  var alpha = parseInt([doc askForUserInput:"Opacity percentage?" initialValue:initialValue])
+  var alpha = doc.askForUserInput_initialValue("Opacity percentage?", initialValue)
 
   for(var i=0; i < c; i++){
-    var layer = [selection objectAtIndex:i]
-    [[[layer style] contextSettings] setOpacity:(alpha/100)]
+    var layer = selection.objectAtIndex(i)
+    layer.style().contextSettings().setOpacity(alpha/100)
   }
 }
