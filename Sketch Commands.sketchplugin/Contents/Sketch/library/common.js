@@ -11,14 +11,14 @@ com.bomberstudios = {
     [file_manager createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil];
   },
   getFileFolder: function(){
-    var doc = context.document,
+    var doc = NSApplication.sharedApplication().orderedDocuments().firstObject(),
         file_url = [doc fileURL],
         file_path = [file_url path],
         file_folder = file_path.split([doc displayName])[0];
     return file_folder;
   },
   getExportPath: function(){
-    var doc = context.document,
+    var doc = NSApplication.sharedApplication().orderedDocuments().firstObject(),
         file_folder = com.bomberstudios.getFileFolder(),
         export_folder = file_folder + ([doc displayName]).split('.sketch')[0] + "_export/";
     return export_folder;
@@ -29,7 +29,7 @@ com.bomberstudios = {
       path = com.bomberstudios.getExportPath();
     }
 
-    var doc = context.document,
+    var doc = NSApplication.sharedApplication().orderedDocuments().firstObject(),
         pages = [doc pages];
 
     for(var i=0; i < [pages count]; i++){
@@ -49,7 +49,7 @@ com.bomberstudios = {
       path = com.bomberstudios.getExportPath();
     }
     log("com.bomberstudios.export_all_artboards() to " + path)
-    var doc = context.document,
+    var doc = NSApplication.sharedApplication().orderedDocuments().firstObject(),
         pages = [doc pages]
     for(var i=0; i < [pages count]; i++){
       var page = [pages objectAtIndex:i]
@@ -64,7 +64,7 @@ com.bomberstudios = {
     }
   },
   export_item: function(item,format,path){
-    var doc = context.document,
+    var doc = NSApplication.sharedApplication().orderedDocuments().firstObject(),
         sel = item,
         rect = [sel absoluteInfluenceRect];
     [doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:path + "/" + [sel name] + "." + format];
@@ -89,7 +89,7 @@ com.bomberstudios = {
     var minute = com.bomberstudios.padNumber(now.getMinutes());
     return year + month + day + hour + minute;
   },
-  selection_count_is: function(min){
+  selection_count_is: function(min, context){
     var selection = context.selection,
         min = min || 1,
         title = "Whoops";
