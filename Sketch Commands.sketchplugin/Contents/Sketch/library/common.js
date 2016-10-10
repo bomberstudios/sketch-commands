@@ -2,72 +2,72 @@ var com = {};
 
 com.bomberstudios = {
   alert: function (msg, title) {
-    if (title == undefined) { title = "Whoops" };
-    var app = [NSApplication sharedApplication];
-    [app displayDialog:msg withTitle:title];
+    if (title === undefined) { title = "Whoops"; }
+    var app = NSApplication.sharedApplication();
+    app.displayDialog_withTitle_(msg, title);
   },
   create_folder: function(path) {
-    var file_manager = [NSFileManager defaultManager];
-    [file_manager createDirectoryAtPath:path withIntermediateDirectories:true attributes:nil error:nil];
+    var file_manager = NSFileManager.defaultManager();
+    file_manager.createDirectoryAtPath_withIntermediateDirectories_attributes_error_(path, true, nil, nil);
   },
   getFileFolder: function(){
-    var doc = NSApplication.sharedApplication().orderedDocuments().firstObject(),
-        file_url = [doc fileURL],
-        file_path = [file_url path],
-        file_folder = file_path.split([doc displayName])[0];
+    var doc = context.document,
+        file_url = doc.fileURL(),
+        file_path = file_url.path(),
+        file_folder = file_path.split(doc.displayName())[0];
     return file_folder;
   },
   getExportPath: function(){
     var doc = NSApplication.sharedApplication().orderedDocuments().firstObject(),
         file_folder = com.bomberstudios.getFileFolder(),
-        export_folder = file_folder + ([doc displayName]).split('.sketch')[0] + "_export/";
+        export_folder = file_folder + doc.displayName().split('.sketch')[0] + "_export/";
     return export_folder;
   },
   export_all_slices: function(format,path){
-    log("com.bomberstudios.export_all_slices()")
-    if (path == undefined) {
+    log("com.bomberstudios.export_all_slices()");
+    if (path === undefined) {
       path = com.bomberstudios.getExportPath();
     }
 
-    var doc = NSApplication.sharedApplication().orderedDocuments().firstObject(),
-        pages = [doc pages];
+    var doc = context.document,
+        pages = doc.pages();
 
-    for(var i=0; i < [pages count]; i++){
-      var page = [pages objectAtIndex:i]
-      [doc setCurrentPage:page];
-      var pagename = [[doc currentPage] name],
-          layers = [[doc currentPage] exportableLayers];
+    for(var i=0; i < pages.count(); i++){
+      var page = pages.objectAtIndex(i);
+      doc.setCurrentPage(page);
+      var pagename = doc.currentPage().name(),
+          layers = doc.currentPage().exportableLayers();
 
-      for (var j=0; j < [layers count]; j++) {
-        var slice = [layers objectAtIndex:j]
-        [doc saveArtboardOrSlice:slice toFile:path + "/" + pagename + "/" + [slice name] + "." + format];
+      for (var j=0; j < layers.count(); j++) {
+        var slice = layers.objectAtIndex(j);
+        doc.saveArtboardOrSlice_toFile_(slice, path + "/" + pagename + "/" + slice.name() + "." + format);
       }
     }
   },
   export_all_artboards: function(format,path){
-    if (path == undefined) {
+    if (path === undefined) {
       path = com.bomberstudios.getExportPath();
     }
-    log("com.bomberstudios.export_all_artboards() to " + path)
-    var doc = NSApplication.sharedApplication().orderedDocuments().firstObject(),
-        pages = [doc pages]
-    for(var i=0; i < [pages count]; i++){
-      var page = [pages objectAtIndex:i]
-      [doc setCurrentPage:page]
-      var pagename = [[doc currentPage] name],
-          layers = [[doc currentPage] artboards]
+    log("com.bomberstudios.export_all_artboards() to " + path);
+    var doc = context.document,
+        pages = doc.pages();
+    for(var i=0; i < pages.count(); i++){
+      var page = pages.objectAtIndex(i);
+      doc.setCurrentPage(page);
+      var pagename = doc.currentPage().name(),
+          layers = doc.currentPage().artboards();
 
-      for (var j=0; j < [layers count]; j++) {
-        var artboard = [layers objectAtIndex:j]
-        [doc saveArtboardOrSlice:artboard toFile:path + "/" + pagename + "/" + [artboard name] + "." + format];
+      for (var j=0; j < layers.count(); j++) {
+        var artboard = layers.objectAtIndex(j);
+        doc.saveArtboardOrSlice_toFile_(artboard, path + "/" + pagename + "/" + artboard.name() + "." + format);
       }
     }
   },
   export_item: function(item,format,path){
     var doc = NSApplication.sharedApplication().orderedDocuments().firstObject(),
         sel = item,
-        rect = [sel absoluteInfluenceRect];
-    [doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:path + "/" + [sel name] + "." + format];
+        rect = sel.absoluteInfluenceRect();
+    doc.saveArtboardOrSlice_toFile_(MSRect.rectWithRect(rect), path + "/" + sel.name() + "." + format);
   },
   export_item_to_desktop: function(item,format){
     var desktop = [@"~/Desktop" stringByExpandingTildeInPath]

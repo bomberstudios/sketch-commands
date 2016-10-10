@@ -23,7 +23,7 @@ var onRun = function(context) {
   }
 
   function do_export(){
-    [doc saveArtboardOrSlice:[GKRect rectWithRect:rect] toFile:export_filename];
+    [doc saveArtboardOrSlice:[MSRect rectWithRect:rect] toFile:export_filename];
     com.bomberstudios.reveal_finder_in(export_filename);
   }
 

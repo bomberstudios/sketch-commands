@@ -19,7 +19,7 @@ var onRun = function(context) {
   }
   function do_export(){
     log("do_export")
-    var slice = [GKRect rectWithRect:rect];
+    var slice = [MSRect rectWithRect:rect];
     [doc saveArtboardOrSlice:slice toFile:export_filename];
     var file_url = [NSURL fileURLWithPath:export_filename]
     var str = [[NSString alloc] initWithContentsOfURL:file_url]
