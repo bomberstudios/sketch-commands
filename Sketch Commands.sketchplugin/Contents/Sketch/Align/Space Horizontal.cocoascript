@@ -23,7 +23,7 @@ var onRun = function(context) {
       left_position = first_element.frame().left();
 
   sorted_selection.forEach(function(layer){
-    layer.frame.setX(left_position);
-    left_position = layer.frame().left() + layer.frame().width() + spacing;
+    layer.frame().setX(left_position);
+    left_position = layer.frame().left() + layer.frame().width() + parseInt(spacing);
   });
 }
