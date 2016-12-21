@@ -1,0 +1,39 @@
+// Swap two elements' positions and shift if one is bigger than the other
+
+var onRun = function(context) {
+  var doc = context.document,
+      selection = context.selection
+
+  if ( [selection count] == 2){
+
+    var first_object = selection[0],
+        second_object = selection[1],
+        first_position  = { left: [[first_object frame] left], top: [[first_object frame] top] },
+        second_position = { left: [[second_object frame] left], top: [[second_object frame] top] },
+        first_size  = { height: [[first_object frame] height], width: [[first_object frame] width] },
+        second_size = { height: [[second_object frame] height], width: [[second_object frame] width] }
+
+    if (first_position.top < second_position.top || first_position.left < second_position.left) {
+
+        // First object is top left
+
+        [[first_object frame] setX: (second_position.left - first_size.width + second_size.width)]
+        [[first_object frame] setY: (second_position.top - first_size.height + second_size.height)]
+
+        [[second_object frame] setX: (first_position.left)] 
+        [[second_object frame] setY: (first_position.top)]     
+
+    } else {
+
+        // Second object is top left
+
+        [[first_object frame] setX: (second_position.left)]
+        [[first_object frame] setY: (second_position.top)]
+
+        [[second_object frame] setX: (first_position.left - second_size.width + first_size.width)]
+        [[second_object frame] setY: (first_position.top - second_size.height + first_size.height)]
+    }
+  } else {
+    [doc showMessage:"You need to select exactly two objects"]
+  }
+}
