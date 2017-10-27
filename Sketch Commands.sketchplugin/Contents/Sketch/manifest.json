@@ -4,9 +4,9 @@
   "author": "Ale Muñoz",
   "email": "bomberstudios@gmail.com",
   "homepage": "http://github.com/bomberstudios/sketch-commands",
-  "version": "3.4.4",
+  "version": "3.4.5",
   "identifier": "com.bomberstudios.sketch.commands",
-  "compatibleVersion": "3.4.4",
+  "compatibleVersion": "3.4.5",
   "bundleVersion": 1,
   "commands": [
     {
@@ -614,5 +614,6 @@
         ]
       }
     ]
-  }
+  },
+  "appcast" : "https://cdn.rawgit.com/bomberstudios/sketch-commands/master/appcast.xml"
 }

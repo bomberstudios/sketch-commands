@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Sketch Commands</title>
+    <link>http://github.com/bomberstudios/sketch-commands</link>
+    <description>A collection of script commands for Bohemian Coding's Sketch.app</description>
+    <language>en</language>
+      <item>
+        <title>Sketch Commands v3.4.5</title>
+        <description>
+          <![CDATA[
+            <p><b>/ New Features</b></p>
+            <ul>
+              <li><b>Sketch plugin update:</b> Support for Sketch's plugin update system (Sketch v45+).</li>
+            </ul>
+            <p><b>/ Improvements</b></p>
+            <ul>
+              <li>Fixed "Export Page to ...".</li>
+            </ul>
+          ]]>
+        </description>
+        <enclosure url="https://cdn.rawgit.com/bomberstudios/sketch-commands/master/sketch-commands.zip" sparkle:version="3.4.5" />
+      </item>
+  </channel>
+</rss>
