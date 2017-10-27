@@ -1,15 +1,5 @@
 var onRun = function(context) {
+  @import '../library/common.js'
   var doc = context.document
-  var all = doc.currentPage().children()
-
-  var zero = NSMakeRect(0.0, 0.0, 0.0, 0.0);
-  var rect = all.reduce(function(sum, elem) {
-      return NSUnionRect(elem.rect(), sum)
-  }, zero);
-
-  var exportRequest = MSExportRequest.new()
-  exportRequest.rect = rect
-  exportRequest.scale = 2
-  doc.saveArtboardOrSlice_toFile(exportRequest, "~/Desktop/page.pdf")
-  doc.showMessage("File exported to your desktop as 'page.pdf'")
+  com.bomberstudios.exportCurrentPage(doc, "~/Desktop/page.pdf")
 }

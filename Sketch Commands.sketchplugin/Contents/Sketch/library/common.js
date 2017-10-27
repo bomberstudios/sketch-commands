@@ -73,6 +73,20 @@ com.bomberstudios = {
     var desktop = [@"~/Desktop" stringByExpandingTildeInPath]
     com.bomberstudios.export_item(item,format,desktop);
   },
+  exportCurrentPage: function(doc, path){
+    var all = doc.currentPage().layers()
+
+    var zero = NSMakeRect(0.0, 0.0, 0.0, 0.0);
+    var rect = all.reduce(function(sum, elem) {
+        return NSUnionRect(elem.rect(), sum)
+    }, zero);
+
+    var exportRequest = MSExportRequest.new()
+    exportRequest.rect = rect
+    exportRequest.scale = 2
+    doc.saveArtboardOrSlice_toFile(exportRequest, path)
+    doc.showMessage("Page exported to " + path)
+  },
   padNumber: function(num){
     num = num.toString();
     if (num.length < 2) {
