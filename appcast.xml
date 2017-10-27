@@ -19,7 +19,7 @@
             </ul>
           ]]>
         </description>
-        <enclosure url="https://cdn.rawgit.com/bomberstudios/sketch-commands/master/sketch-commands.zip" sparkle:version="3.4.5" />
+        <enclosure url="https://github.com/bomberstudios/sketch-commands/raw/master/sketch-commands.zip" sparkle:version="3.4.5" />
       </item>
   </channel>
 </rss>
