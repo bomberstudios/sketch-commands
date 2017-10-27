@@ -1,8 +1,15 @@
 var onRun = function(context) {
   var doc = context.document
   var all = doc.currentPage().children()
-  var rect = doc.currentView().totalRectForLayers(all)
-  var exportRequest = MSExportRequest.requestWithRect_scale(rect,2)
+
+  var zero = NSMakeRect(0.0, 0.0, 0.0, 0.0);
+  var rect = all.reduce(function(sum, elem) {
+      return NSUnionRect(elem.rect(), sum)
+  }, zero);
+
+  var exportRequest = MSExportRequest.new()
+  exportRequest.rect = rect
+  exportRequest.scale = 2
   doc.saveArtboardOrSlice_toFile(exportRequest, "~/Desktop/page.pdf")
-  doc.showMessage("File exported to your desktop as 'page.pdf'")
+  doc.showMessage("File exported to your desktop as 'page.png'")
 }
