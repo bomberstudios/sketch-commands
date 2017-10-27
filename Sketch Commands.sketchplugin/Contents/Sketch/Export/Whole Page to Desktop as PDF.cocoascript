@@ -11,5 +11,5 @@ var onRun = function(context) {
   exportRequest.rect = rect
   exportRequest.scale = 2
   doc.saveArtboardOrSlice_toFile(exportRequest, "~/Desktop/page.pdf")
-  doc.showMessage("File exported to your desktop as 'page.png'")
+  doc.showMessage("File exported to your desktop as 'page.pdf'")
 }
