@@ -2,33 +2,11 @@ var onRun = function(context) {
     var doc = context.document
     var all = doc.currentPage().children()
 
-    // TODO: There must be a better way
-    var minx = 0.0;
-    var miny = 0.0;
-    var maxx = 0.0;
-    var maxy = 0.0;
+    var zero = NSMakeRect(0.0, 0.0, 0.0, 0.0);
+    var rect = all.reduce(function(sum, elem) {
+        return NSUnionRect(elem.rect(), sum)
+    }, zero);
 
-    for (var i = 0; i < all.count(); i++) {
-        var _minX = all[i].frame().minX();
-        var _maxX = all[i].frame().maxX();
-        var _minY = all[i].frame().minY();
-        var _maxY = all[i].frame().maxY();
-
-        if (_maxX > maxx) {
-            maxx = _maxX;
-        }
-        if (_minX < minx) {
-            minx = _minX;
-        }
-        if (_maxY > maxy) {
-            maxy = _maxY;
-        }
-        if (_minY < miny) {
-            miny = _minY;
-        }
-    }
-
-    var rect = NSMakeRect(miny, minx, maxy - (miny < 0 ? miny * -1 : miny), maxx - (minx < 0 ? minx * -1 : minx));
     var exportRequest = MSExportRequest.new()
     exportRequest.rect = rect
     exportRequest.scale = 2
