@@ -1,12 +1,12 @@
 {
   "name": "Sketch Commands",
-  "description": "A collection of script commands for Bohemian Coding's Sketch.app",
+  "description": "A collection of utilities to make working with Sketch a bit more pleasant",
   "author": "Ale Muñoz",
   "email": "bomberstudios@gmail.com",
   "homepage": "http://github.com/bomberstudios/sketch-commands",
-  "version": "3.4.4",
+  "version": "3.4.5",
   "identifier": "com.bomberstudios.sketch.commands",
-  "compatibleVersion": "3.4.4",
+  "compatibleVersion": "47",
   "bundleVersion": 1,
   "commands": [
     {
@@ -246,7 +246,7 @@
     {
       "name": "Add New Page",
       "identifier": "addnewpage",
-      "shortcut": "ctrl shift w",
+      "shortcut": "",
       "script": "Pages/Add New Page.cocoascript"
     },
     {

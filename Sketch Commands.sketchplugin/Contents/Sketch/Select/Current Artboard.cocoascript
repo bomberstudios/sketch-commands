@@ -5,7 +5,7 @@ var onRun = function(context) {
       page = [doc currentPage],
       current_artboard = [page currentArtboard]
 
-  [page deselectAllLayers]
+  [page changeSelectionBySelectingLayers:nil]
 
   if (current_artboard != null) {
     [current_artboard select:true byExpandingSelection:true]
