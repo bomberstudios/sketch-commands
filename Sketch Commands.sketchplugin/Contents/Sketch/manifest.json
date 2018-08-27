@@ -30,7 +30,7 @@
     {
       "name": "Duplicate Artboard Below",
       "identifier": "duplicateartboardbelow",
-      "shortcut": "cmd shift d",
+      "shortcut": "",
       "script": "Duplicate/Duplicate Artboard Below.cocoascript"
     },
     {
