@@ -1,9 +1,13 @@
 var onRun = function(context) {
   var doc = context.document,
       page = [doc currentPage],
-    current_artboard = [page currentArtboard]
+      current_artboard = [page currentArtboard]
 
-  [page deselectAllLayers]
+  try {
+    page.deselectAllLayers()
+  } catch (e) {
+    page.changeSelectionBySelectingLayers(null)
+  }
 
   if (current_artboard != null) {
     var layers = [current_artboard layers]
