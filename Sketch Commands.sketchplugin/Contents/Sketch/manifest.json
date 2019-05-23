@@ -333,7 +333,7 @@
       "name": "Set Radius…",
       "identifier": "setradius…",
       "shortcut": "ctrl alt r",
-      "script": "Properties/Set Radius….cocoascript"
+      "script": "Properties/Set Radius….js"
     },
     {
       "name": "All Layers in Current Artboard",
