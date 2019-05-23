@@ -3,11 +3,13 @@
   "description": "A collection of utilities to make working with Sketch a bit more pleasant",
   "author": "Ale Muñoz",
   "email": "bomberstudios@gmail.com",
-  "homepage": "http://github.com/bomberstudios/sketch-commands",
-  "version": "3.4.7",
+  "homepage": "https://github.com/bomberstudios/sketch-commands",
+  "version": "3.5",
   "identifier": "com.bomberstudios.sketch.commands",
   "compatibleVersion": "47",
   "bundleVersion": 1,
+  "icon": "icon.png",
+  "appcast": "https://raw.githubusercontent.com/bomberstudios/sketch-commands/master/appcast.xml",
   "commands": [
     {
       "name": "Space Horizontal",
@@ -400,13 +402,13 @@
       "script": "Size/Height….cocoascript"
     },
     {
-      "name": "Scale to 16-9",
+      "name": "Scale to 16:9",
       "identifier": "scaleto16-9",
       "shortcut": "",
       "script": "Size/Scale to 16-9.cocoascript"
     },
     {
-      "name": "Scale to 4-3",
+      "name": "Scale to 4:3",
       "identifier": "scaleto4-3",
       "shortcut": "",
       "script": "Size/Scale to 4-3.cocoascript"

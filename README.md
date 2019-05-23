@@ -1,6 +1,6 @@
 # Sketch Commands
 
-Sketch Commands is a port of some of my [Orange Commands for Fireworks](https://github.com/bomberstudios/fireworks) for Bohemian Coding’s [Sketch.app](http://sketchapp.com).
+Sketch Commands is a port of some of my [Orange Commands for Fireworks](https://github.com/bomberstudios/fireworks) for [Sketch.app](https://sketch.com).
 
 ## Installation
 
