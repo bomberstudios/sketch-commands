@@ -321,7 +321,7 @@
       "name": "Make Pill",
       "identifier": "makepill",
       "shortcut": "",
-      "script": "Properties/Make Pill.cocoascript"
+      "script": "Properties/Make Pill.js"
     },
     {
       "name": "Rotation…",
