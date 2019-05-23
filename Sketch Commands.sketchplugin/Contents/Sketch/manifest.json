@@ -276,12 +276,6 @@
       "script": "Playground/Kitchen Sink.cocoascript"
     },
     {
-      "name": "Fix Position",
-      "identifier": "fixposition",
-      "shortcut": "",
-      "script": "Position/Fix Position.cocoascript"
-    },
-    {
       "name": "Move Down 100px",
       "identifier": "movedown100px",
       "shortcut": "",
@@ -543,7 +537,6 @@
       {
         "title": "Position",
         "items": [
-          "fixposition",
           "movedown100px",
           "moveleft100px",
           "moveright100px",
