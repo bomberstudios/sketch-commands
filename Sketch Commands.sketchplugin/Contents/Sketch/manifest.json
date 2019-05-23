@@ -336,12 +336,6 @@
       "script": "Properties/Set Radius….cocoascript"
     },
     {
-      "name": "All Artboards in Page",
-      "identifier": "allartboardsinpage",
-      "shortcut": "",
-      "script": "Select/All Artboards in Page.cocoascript"
-    },
-    {
       "name": "All Layers in Current Artboard",
       "identifier": "alllayersincurrentartboard",
       "shortcut": "",
