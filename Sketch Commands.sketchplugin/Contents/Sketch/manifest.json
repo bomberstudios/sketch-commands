@@ -482,7 +482,6 @@
       {
         "title": "Effects",
         "items": [
-          "offset",
           "repeathorizontal",
           "repeatvertical"
         ]
@@ -598,9 +597,7 @@
         "title": "Text",
         "items": [
           "casesentencecase",
-          "casetitlecase",
-          "caseuppercase",
-          "caselowercase"
+          "casetitlecase"
         ]
       }
     ]
