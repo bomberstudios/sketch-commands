@@ -303,7 +303,7 @@
       "name": "Set Position…",
       "identifier": "setposition…",
       "shortcut": "ctrl shift p",
-      "script": "Position/Set Position….cocoascript"
+      "script": "Position/Set Position….js"
     },
     {
       "name": "Swap Positions",
