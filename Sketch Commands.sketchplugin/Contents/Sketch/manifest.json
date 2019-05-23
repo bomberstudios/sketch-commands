@@ -554,12 +554,6 @@
         ]
       },
       {
-        "title": "Playground",
-        "items": [
-          "kitchensink"
-        ]
-      },
-      {
         "title": "Position",
         "items": [
           "fixposition",
