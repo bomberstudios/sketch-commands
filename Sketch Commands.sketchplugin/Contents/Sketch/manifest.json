@@ -225,25 +225,25 @@
       "name": "Artboards Add",
       "identifier": "artboardsadd",
       "shortcut": "",
-      "script": "Numberize/Artboards Add.cocoascript"
+      "script": "Numberize/Artboards Add.js"
     },
     {
       "name": "Artboards Remove",
       "identifier": "artboardsremove",
       "shortcut": "",
-      "script": "Numberize/Artboards Remove.cocoascript"
+      "script": "Numberize/Artboards Remove.js"
     },
     {
       "name": "Pages Add",
       "identifier": "pagesadd",
       "shortcut": "",
-      "script": "Numberize/Pages Add.cocoascript"
+      "script": "Numberize/Pages Add.js"
     },
     {
       "name": "Pages Remove",
       "identifier": "pagesremove",
       "shortcut": "",
-      "script": "Numberize/Pages Remove.cocoascript"
+      "script": "Numberize/Pages Remove.js"
     },
     {
       "name": "Duplicate Current Page",
