@@ -216,12 +216,6 @@
       "script": "Guides/Repeat Guides vertically on Artboard.cocoascript"
     },
     {
-      "name": "Copy Layer List",
-      "identifier": "copylayerlist",
-      "shortcut": "",
-      "script": "Layers/Copy Layer List.cocoascript"
-    },
-    {
       "name": "Artboards Add",
       "identifier": "artboardsadd",
       "shortcut": "",
@@ -496,12 +490,6 @@
           "clearverticalguidesincurrentpage",
           "repeatguideshorizontallyonartboard",
           "repeatguidesverticallyonartboard"
-        ]
-      },
-      {
-        "title": "Layers",
-        "items": [
-          "copylayerlist"
         ]
       },
       {
