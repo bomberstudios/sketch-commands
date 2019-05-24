@@ -261,7 +261,7 @@
       "name": "Set Name…",
       "identifier": "setname…",
       "shortcut": "",
-      "script": "Pages/Set Name….cocoascript"
+      "script": "Pages/Set Name….js"
     },
     {
       "name": "Move Down 100px",
