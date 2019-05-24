@@ -270,12 +270,6 @@
       "script": "Pages/Set Name….cocoascript"
     },
     {
-      "name": "Kitchen Sink",
-      "identifier": "kitchensink",
-      "shortcut": "",
-      "script": "Playground/Kitchen Sink.cocoascript"
-    },
-    {
       "name": "Move Down 100px",
       "identifier": "movedown100px",
       "shortcut": "",
@@ -556,7 +550,6 @@
       {
         "title": "Select",
         "items": [
-          "allartboardsinpage",
           "alllayersincurrentartboard",
           "alltextlayersinpage",
           "currentartboard"
