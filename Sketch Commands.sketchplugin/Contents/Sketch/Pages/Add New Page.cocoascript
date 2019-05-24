@@ -1,8 +1,0 @@
-// Add New Page
-// @shortcut ctrl shift w
-
-var onRun = function(context) {
-  var doc = context.document
-
-  [doc addBlankPage];
-}

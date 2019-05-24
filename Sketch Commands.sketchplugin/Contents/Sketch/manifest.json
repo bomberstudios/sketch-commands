@@ -246,12 +246,6 @@
       "script": "Numberize/Pages Remove.cocoascript"
     },
     {
-      "name": "Add New Page",
-      "identifier": "addnewpage",
-      "shortcut": "",
-      "script": "Pages/Add New Page.cocoascript"
-    },
-    {
       "name": "Duplicate Current Page",
       "identifier": "duplicatecurrentpage",
       "shortcut": "",
@@ -522,7 +516,6 @@
       {
         "title": "Pages",
         "items": [
-          "addnewpage",
           "duplicatecurrentpage",
           "removecurrentpage",
           "setname…"
