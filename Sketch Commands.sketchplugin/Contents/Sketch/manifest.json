@@ -114,18 +114,6 @@
       "script": "Export/All Slices as SVG.cocoascript"
     },
     {
-      "name": "Copy SVG Path",
-      "identifier": "copysvgpath",
-      "shortcut": "",
-      "script": "Export/Copy SVG Path.cocoascript"
-    },
-    {
-      "name": "Copy Selection to SVG",
-      "identifier": "copyselectiontosvg",
-      "shortcut": "",
-      "script": "Export/Copy Selection to SVG.cocoascript"
-    },
-    {
       "name": "Save and Export Slices",
       "identifier": "saveandexportslices",
       "shortcut": "ctrl shift s",
@@ -459,23 +447,21 @@
       {
         "title": "Export",
         "items": [
-          "allartboardsaspdf",
-          "allartboardsaspngin…",
           "allartboardsaspng",
+          "allartboardsaspngin…",
           "allartboardsassvg",
-          "allslicesaspdf",
+          "allartboardsaspdf",
+          "allslicesaspng",
           "allslicesaspnginzip",
           "allslicesaspngin…",
-          "allslicesaspng",
           "allslicesassvg",
-          "copysvgpath",
-          "copyselectiontosvg",
+          "allslicesaspdf",
           "saveandexportslices",
-          "selectiontodesktopaspdf",
           "selectiontodesktopaspng",
           "selectiontodesktopassvg",
-          "wholepagetodesktopaspdf",
-          "wholepagetodesktopaspng"
+          "selectiontodesktopaspdf",
+          "wholepagetodesktopaspng",
+          "wholepagetodesktopaspdf"
         ]
       },
       {
