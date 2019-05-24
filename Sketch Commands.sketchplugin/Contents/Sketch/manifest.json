@@ -537,10 +537,10 @@
       {
         "title": "Position",
         "items": [
+          "moveup100px",
           "movedown100px",
           "moveleft100px",
           "moveright100px",
-          "moveup100px",
           "setposition…",
           "swappositions"
         ]
