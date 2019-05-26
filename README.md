@@ -25,19 +25,15 @@ Sketch Commands is a port of some of my [Orange Commands for Fireworks](https://
 - **All Artboards as PNG in…:** Exports all the Artboards in the document as PNG files, in a folder of your choice.
 - **All Artboards as SVG:** Exports all the Artboards in the document as SVG files, in a folder at the file's location.
 - **All Artboards as PDF:** Exports all the Artboards in the document as independent PDF files (one PDF file per Artboard), in a folder at the file's location.
-
 - **All Slices as PNG:** Exports all the Slices in the document as PNG files, in a folder at the file's location.
 - **All Slices as PNG in ZIP:** Exports all the Slices in the document as PNG files, archived in a ZIP file.
 - **All Slices as PNG in…:** Exports all the Slices in the document as PNG files, in a folder of your choice.
 - **All Slices as SVG:** Exports all the Slices in the document as SVG files, in a folder at the file's location.
 - **All Slices as PDF:** Exports all the Slices in the document as independent PDF files (one PDF file per Slice), in a folder at the file's location.
-
 - **Save and Export Slices:** Saves the file, exporting all the Slices in PNG format, in a folder at the file's location.
-
 - **Selection to Desktop as PNG:** Exports the selected layers as a PNG file on the Desktop.
 - **Selection to Desktop as SVG:** Exports the selected layers as a SVG file on the Desktop.
 - **Selection to Desktop as PDF:** Exports the selected layers as a PDF file on the Desktop.
-
 - **Whole Page to Desktop as PNG:** Exports the current page as a PNG file on the Desktop.
 - **Whole Page to Desktop as PDF:** Exports the current page as a PDF file on the Desktop.
 
