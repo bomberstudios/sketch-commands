@@ -7,7 +7,7 @@ var onRun = function(context) {
 
   // Make sure rulers are visible
   if (doc.isRulersVisible() == 0) {
-    doc.toggleRulers()
+    doc.actionsController().performActionWithID_sender("MSToggleRulersAction", nil)
   }
 
   var current_artboard = doc.currentPage().currentArtboard() || doc.currentPage()

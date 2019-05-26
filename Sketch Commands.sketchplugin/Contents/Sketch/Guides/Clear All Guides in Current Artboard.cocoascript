@@ -1,13 +1,13 @@
 // Clear All Guides in Current Artboard
-@import '../library/utils.js'
 
 var onRun = function(context) {
+  @import '../library/utils.js'
   var doc = context.document
   var current_artboard = doc.currentPage().currentArtboard()
   if (current_artboard != null) {
     // Make sure rulers are visible
     if (doc.isRulersVisible() == 0) {
-      doc.toggleRulers()
+      doc.actionsController().performActionWithID_sender("MSToggleRulersAction", nil)
     }
 
     var horizontal_guides = current_artboard.horizontalRulerData(),

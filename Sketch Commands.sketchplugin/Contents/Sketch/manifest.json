@@ -192,13 +192,13 @@
       "script": "Guides/Clear Vertical Guides in Current Page.cocoascript"
     },
     {
-      "name": "Repeat Guides horizontally on Artboard",
+      "name": "Repeat Guides Horizontally on Artboard",
       "identifier": "repeatguideshorizontallyonartboard",
       "shortcut": "",
       "script": "Guides/Repeat Guides horizontally on Artboard.cocoascript"
     },
     {
-      "name": "Repeat Guides vertically on Artboard",
+      "name": "Repeat Guides Vertically on Artboard",
       "identifier": "repeatguidesverticallyonartboard",
       "shortcut": "",
       "script": "Guides/Repeat Guides vertically on Artboard.cocoascript"

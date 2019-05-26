@@ -1,11 +1,11 @@
 // Clear All Guides in Current Page
-@import '../library/util.js'
 
 var onRun = function(context) {
+  @import '../library/utils.js'
   var doc = context.document
   // Make sure rulers are visible
   if (doc.isRulersVisible() == 0) {
-    doc.toggleRulers()
+    doc.actionsController().performActionWithID_sender("MSToggleRulersAction", nil)
   }
 
   var horizontal_guides = doc.currentPage().horizontalRulerData(),
@@ -15,10 +15,8 @@ var onRun = function(context) {
   horizontal_guides.numberOfGuides().times(function(){
     horizontal_guides.removeGuideAtIndex(0)
   })
-  /*
   // Remove vertical guides
   vertical_guides.numberOfGuides().times(function(){
     vertical_guides.removeGuideAtIndex(0)
   })
-  */
 }
