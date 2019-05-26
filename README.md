@@ -95,7 +95,7 @@ A collection of commands to add / remove numbers to the name of Pages and Artboa
 - **Width…:** Sets the width of the selected layers to a custom value.
 
 ### Text
+See [this article](https://www.snappysentences.com/sentence-case-v-title-case/) for more details on Sentence vs Title case.
 - **Case Sentence case:** Sets the selected text layers to Sentence case.
 - **Case Title Case:** Sets the selected text layers to Title Case.
 
-See [this article](https://www.snappysentences.com/sentence-case-v-title-case/) for more details on Sentence vs Title case.
