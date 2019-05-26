@@ -1,6 +1,6 @@
-@import '../library/common.js'
 
 var onRun = function(context) {
+  @import '../library/common.js'
   var doc = context.document,
       selection = context.selection,
       sel = selection[0],

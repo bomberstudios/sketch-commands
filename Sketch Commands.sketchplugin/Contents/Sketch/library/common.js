@@ -134,21 +134,23 @@ com.bomberstudios = {
     }
   },
   open_finder_in: function(path) {
-    var open_finder = [[NSTask alloc] init],
-        open_finder_args = [NSArray arrayWithObjects:".", nil];
+    console.log('open_finder_in: ' + path)
+    var open_finder = NSTask.alloc().init()
+    var open_finder_args = ["."]
 
-    [open_finder setCurrentDirectoryPath:path];
-    [open_finder setLaunchPath:"/usr/bin/open"];
-    [open_finder setArguments:open_finder_args];
-    [open_finder launch];
+    open_finder.setCurrentDirectoryPath(path)
+    open_finder.setLaunchPath("/usr/bin/open")
+    open_finder.setArguments(open_finder_args)
+    open_finder.launch()
   },
   reveal_finder_in: function(path) {
-    var open_finder = [[NSTask alloc] init],
-        open_finder_args = [NSArray arrayWithObjects:"-R", path, nil];
+    console.log('reveal_finder_in: ' + path)
+    var open_finder = NSTask.alloc().init()
+    var open_finder_args = ["-R", path]
 
-    [open_finder setLaunchPath:"/usr/bin/open"];
-    [open_finder setArguments:open_finder_args];
-    [open_finder launch];
+    open_finder.setLaunchPath("/usr/bin/open")
+    open_finder.setArguments(open_finder_args)
+    open_finder.launch()
   }
 };
 

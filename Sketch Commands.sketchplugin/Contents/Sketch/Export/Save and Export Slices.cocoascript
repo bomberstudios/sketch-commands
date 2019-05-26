@@ -1,9 +1,9 @@
 // Save document and export slices
 // @shortcut ctrl shift s
-
-@import '../library/common.js'
+// TODO: This should use each Slice's export settings to be really useful.
 
 var onRun = function(context) {
+  @import '../library/common.js'
   var doc = context.document
 
   [doc saveDocument:doc];

@@ -11,7 +11,7 @@ var onRun = function(context) {
     // ZIP folder
     var task = NSTask.alloc().init(),
         file_basename = doc.displayName().split('.sketch')[0],
-        argsArray = NSArray.arrayWithObjects("-r", com.bomberstudios.isodate() + "-" + file_basename + ".zip", file_basename + "_export", nil)
+        argsArray = ["-r", com.bomberstudios.isodate() + "-" + file_basename + ".zip", file_basename + "_export"]
 
     task.setCurrentDirectoryPath(file_folder)
     task.setLaunchPath("/usr/bin/zip")
