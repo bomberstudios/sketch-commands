@@ -15,13 +15,13 @@
       "name": "Space Horizontal",
       "identifier": "spacehorizontal",
       "shortcut": "",
-      "script": "Align/Space Horizontal.cocoascript"
+      "script": "Align/Space Horizontal.js"
     },
     {
       "name": "Space Vertical",
       "identifier": "spacevertical",
       "shortcut": "",
-      "script": "Align/Space Vertical.cocoascript"
+      "script": "Align/Space Vertical.js"
     },
     {
       "name": "Alpha…",
