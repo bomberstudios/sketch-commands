@@ -303,19 +303,19 @@
       "name": "All Layers in Current Artboard",
       "identifier": "alllayersincurrentartboard",
       "shortcut": "",
-      "script": "Select/All Layers in Current Artboard.cocoascript"
+      "script": "Select/All Layers in Current Artboard.js"
     },
     {
       "name": "All Text Layers in Page",
       "identifier": "alltextlayersinpage",
       "shortcut": "",
-      "script": "Select/All Text Layers in Page.cocoascript"
+      "script": "Select/All Text Layers in Page.js"
     },
     {
       "name": "Current Artboard",
       "identifier": "currentartboard",
       "shortcut": "",
-      "script": "Select/Current Artboard.cocoascript"
+      "script": "Select/Current Artboard.js"
     },
     {
       "name": "Equalize Height Down",
