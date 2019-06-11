@@ -249,25 +249,25 @@
       "name": "Move Down 100px",
       "identifier": "movedown100px",
       "shortcut": "",
-      "script": "Position/Move Down 100px.cocoascript"
+      "script": "Position/Move Down 100px.js"
     },
     {
       "name": "Move Left 100px",
       "identifier": "moveleft100px",
       "shortcut": "",
-      "script": "Position/Move Left 100px.cocoascript"
+      "script": "Position/Move Left 100px.js"
     },
     {
       "name": "Move Right 100px",
       "identifier": "moveright100px",
       "shortcut": "",
-      "script": "Position/Move Right 100px.cocoascript"
+      "script": "Position/Move Right 100px.js"
     },
     {
       "name": "Move Up 100px",
       "identifier": "moveup100px",
       "shortcut": "",
-      "script": "Position/Move Up 100px.cocoascript"
+      "script": "Position/Move Up 100px.js"
     },
     {
       "name": "Set Position…",
