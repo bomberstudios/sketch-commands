@@ -282,6 +282,12 @@
       "script": "Position/Swap Positions.cocoascript"
     },
     {
+      "name": "Swap Positions with sizes",
+      "identifier": "swappositionswithsizes",
+      "shortcut": "",
+      "script": "Position/Swap Positions With Sizes.cocoascript"
+    },
+    {
       "name": "Make Pill",
       "identifier": "makepill",
       "shortcut": "",
@@ -503,7 +509,8 @@
           "moveleft100px",
           "moveright100px",
           "setposition…",
-          "swappositions"
+          "swappositions",
+          "swappositionswithsizes"
         ]
       },
       {
